@@ -36,4 +36,4 @@ Prepared on 2026-10-11 from the original publications and their authors' reposit
 
 ## Maintenance
 
-The local downloaded originals and PDF page renders are in ignored `artifacts/source-assets/`. They are not part of the deployed site. Publication captions should identify the original figure and link to its paper or repository. The three displayed WebP files total 269,972 bytes (approximately 264 KiB) and load lazily. The architecture alternative is not deployed.
+The local downloaded originals and PDF page renders are in ignored `artifacts/source-assets/`. They are not part of the deployed site. Publication records link to the original papers; each thumbnail has descriptive alternative text and opens the full-size figure. On small screens, the Figure link preserves the same access. Source attribution and original figure numbers are retained here. The three displayed WebP files total 269,972 bytes (approximately 264 KiB) and load lazily. The architecture alternative is not deployed.

@@ -1,10 +1,11 @@
 # Homepage direction contract
 
-Mode: Read, with portfolio evidence. Route: `/`. Target: `src/pages/index.astro`.
+Mode: Read. Route: `/`. Target: `src/pages/index.astro`.
 
-- **THESIS:** establish Jiaxin Xu's identity in information retrieval for LLM agents and give researchers direct access to publications and working resources.
-- **OWN-WORLD:** Academic Editorial Portfolio; off-white paper, green-black ink, forest and sage section fields, Source Serif 4 display typography, Source Sans 3 reading text, and authentic research figures.
-- **STORY:** large name and research statement beside a biography; recent news; featured AOEB followed by KaLM and LMEB; forest research band; open engineering rows; master's and undergraduate education; contact.
-- **FIRST VIEWPORT:** prioritize the name, student role, institution, research statement, and publication and contact actions. The biography sits alongside the identity on desktop and follows it on mobile.
-- **FORM:** a 1160px editorial container, one lead publication, two supporting columns, and full-width research and contact fields. At 760px, content reflows into a linear reading sequence with 24px side margins and natural-ratio figures. Source attribution and full-size image links accompany each paper figure.
-- **CONTENT:** advisor is Prof. Meishan Zhang; undergraduate studies are Computer Science and Technology at HIT Shenzhen. Do not infer undergraduate years or a degree abbreviation. Maintain source-figure provenance in `docs/image-sources.md`.
+- **THESIS:** identify Jiaxin Xu, briefly explain his academic background and research interests, then provide direct access to three papers and their resources.
+- **OWN-WORLD:** a personal academic document informed by https://jonbarron.info/ and https://karpathy.ai/; white background, dark gray text, blue links, Source Sans 3, and small authentic research thumbnails. The user's rejection of the former product-like editorial portfolio supersedes its large hero, colored bands, and promotional copy.
+- **STORY:** name; two short biography paragraphs; email and GitHub links; three equally weighted publications; small footer. Education facts live in the biography. Paper, code, and model resources live in publication entries. Do not repeat these as news, research, projects, education, or contact sections.
+- **FIRST VIEWPORT:** establish the person's name, institution, advisor, undergraduate background, and research interests, then begin the publication list. No slogan, navigation bar, or call-to-action button competes with this content.
+- **FORM:** a centered 800px page with 24px narrow-screen side margins. Desktop papers use 176px source thumbnails beside their metadata. At 600px and below, papers become text-first entries with Figure links instead of displayed thumbnails. All three papers retain equal weight. No cards, section color fields, decorative borders, or animation.
+- **CONTENT:** advisor is Prof. Meishan Zhang (张梅山); master's studies are Computer Technology at HIT Shenzhen; undergraduate studies are Computer Science and Technology at the same institution. Do not infer undergraduate years or a degree abbreviation. Preserve both public email links and GitHub. Keep source-figure provenance in `docs/image-sources.md`.
+- **INTERACTION:** ordinary hyperlinks and a keyboard skip link. No runtime JavaScript, menus, clipboard controls, author disclosures, or custom image viewers.

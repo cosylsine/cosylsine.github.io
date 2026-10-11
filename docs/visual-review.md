@@ -1,56 +1,55 @@
-# Visual review — 2026-10-11 redesign
+# Minimal academic homepage review
 
-## Scope and method
+## User feedback and direction
 
-The user rejected the first composition as rigid and requested a stronger layout, authentic research figures, undergraduate education at HIT Shenzhen in Computer Science and Technology, and Prof. Meishan Zhang as advisor. This review supersedes the first visual pass.
+The user rejected the previous revision as too busy, too artificial, and closer to a product landing page than a personal homepage. More visual variety was not the right response to the earlier layout complaint. This revision prioritizes a short, recognizable academic profile and removes duplicated information.
 
-The installed `frontend-design` and `impeccable` skills guided the design and critique/typeset/layout/polish work. The Impeccable context launcher was attempted once for this pass, but its engine checksum sidecar was unavailable, so the unverified binary was not run. Project context and skill references were read directly. No successful CLI detector scan or overlay is claimed.
+Actual personal homepages were opened and inspected:
 
-The production static build was inspected in Chrome at 1440 × 1000 and 390 × 844. An independent reviewer inspected the rendered hero, publications, projects, and full-page captures, and checked the LMEB figure in the live local preview. Playwright and axe supplied functional and accessibility evidence. Temporary captures and reports stay in ignored `artifacts/`. Local preview: http://127.0.0.1:4321/.
+- [Jon Barron](https://jonbarron.info/): compact personal introduction, ordinary resource links, and small research thumbnails beside publication records. This is the main structural reference.
+- [Andrej Karpathy](https://karpathy.ai/): direct first-person biographical writing and ordinary links to work. The personal tone is relevant; his long career timeline and decorative details were not copied.
 
-## Critique and direction
+Browser captures of these references are in ignored `artifacts/references/`. Their text, images, and code were not copied into the site. Other attempted reference pages were unavailable and were not used as design evidence.
 
-The first composition repeated an identity rail, uniform publication rows, and similarly sized text groups. Synthetic diagrams supplied little direct evidence. The replacement keeps the academic editorial direction while giving each content group a distinct role:
+The installed `frontend-design` guidance and Impeccable's distill, quieter, and craft-floor references informed the work. The Impeccable context launcher had failed earlier in this session because the download checksum could not be verified; project context was read directly. No successful CLI detector run is claimed.
 
-- A large personal name, research statement, and adjacent biography establish a more personal opening.
-- A compact news strip leads into research evidence.
-- AOEB has a larger, featured layout; KaLM and LMEB sit side by side below it on desktop.
-- Real source figures are preserved completely, credited, and linked to their full-size local versions.
-- A forest-green research section creates a clear pause between publications and engineering contributions.
-- Open contribution rows separate project identity from the work performed.
-- Education distinguishes current master's studies from confirmed undergraduate studies without inventing undergraduate dates or a degree abbreviation.
+## What was removed and preserved
 
-The independent reviewer found no release-blocking visual defect. Their optional observation was that mobile research evidence follows a relatively generous introduction and news section; the first publication figure starts around y=1163 at 390px width. A prominent research anchor remains available in the first viewport. Fine labels within dense source figures require enlargement, which the full-size image links support.
+The document now has one opening profile and one Publications section:
 
-## Typeset, layout, and polish
+- Name and two short paragraphs cover master's studies, the confirmed advisor, undergraduate studies, and research interests.
+- Two mailto links and GitHub sit directly beneath the introduction.
+- Three equally weighted publication rows contain the authentic title, first three authors with Jiaxin Xu emphasized, venue/year, and Paper plus Code/Models links.
+- Desktop source figures are small, complete thumbnails. On mobile, Figure links open the original-sized assets without squeezing unreadable charts next to titles.
 
-| Finding | Correction | Final evidence |
-| --- | --- | --- |
-| Repetitive hierarchy and rigid rows | Name-led hero, featured publication, two supporting papers, contrasting research band | Desktop and mobile captures show distinct section rhythms |
-| Diagrams were illustrative substitutes | Extract AOEB Figure 1, KaLM Figure 1(a), and LMEB Figure 1 from original public sources | Three decoded WebP assets with original proportions; provenance in `image-sources.md` |
-| Mobile advisor link split after “Prof.” | Keep the linked name in an inline block | Final mobile hero keeps the advisor name together |
-| Full-page screenshots could capture a lazy image before loading | Scroll each figure into view and await decoding before capture | Final captures contain all three figures; image dimensions asserted |
-| Sharing assets retained the first palette | Regenerate social preview and update favicon colors | Local preview image inspected |
+Removed the top navigation, mobile menu, hero slogans, promotional buttons, News strip, research color band, repeated project section, separate Education and Contact blocks, oversized serif titles, author-disclosure controls, clipboard widgets, and arrow icons. Research topics now appear once in the biography. Code and model resources remain attached to their papers. Confirmed factual metadata and complete author lists remain in the content data, and original figure attribution remains in `image-sources.md` and linked papers.
 
-Section-only screenshots hide sticky navigation during capture to avoid an overlay across the content. Hero and full-page screenshots retain actual navigation. Capture-only styles are not shipped.
+The page uses a single self-hosted font, white background, dark text, and ordinary blue links. It has no client JavaScript. The unused font dependency and obsolete components were removed.
+
+## Rendered critique and polish
+
+Chrome screenshots cover desktop 1440 × 1000 and mobile 390 × 844. Both full-page and publication captures are stored in ignored `artifacts/`.
+
+- Desktop content height: 1004px, previously 4210px. All three publication records fit in the first desktop viewport.
+- Mobile content height: 1085px, previously 5665px. The first publication title starts at approximately y=493 rather than appearing after a long landing-page introduction.
+- Desktop publication titles begin at approximately y=450. The name, biography, contact links, and research evidence have a short reading path.
+- An accessibility scan identified an inline advisor link distinguished only by color. A persistent underline was added before final captures.
+- An independent reviewer inspected the finished desktop/mobile captures and source. They found the result consistent with the revised personal-homepage brief, with clean wrapping and no concrete visual blockers or omissions.
+
+No additional decoration or optional sections were added after review.
 
 ## Verification
 
-- `npm run check`: zero errors, warnings, or hints.
-- `npm run build`: static output completes successfully.
-- `npm run qa`: desktop and mobile pass; local fonts and all three research figures load; no page errors.
-- axe: zero reported WCAG A/AA violations, including the open mobile menu. Automated scanning does not replace screen-reader user testing.
-- No horizontal overflow at 320, 390, 480, 768, 1024, and 1440px, or with root text enlarged to 200% at 390px.
-- Menu opens and closes, Escape and selection dismiss it, and anchor targets clear the sticky header.
-- Full-author disclosure, clipboard success and denial recovery, and the keyboard skip link work.
-- Publications, mailto links, and native mobile navigation remain usable with JavaScript disabled.
-- All nine publication resource links have a minimum 44px target height.
-- The corrected advisor URL and undergraduate major/institution are checked in the rendered DOM.
-- Local mobile Lighthouse lab scores: performance 100, accessibility 100, best practices 100, SEO 100. FCP approximately 0.8s, LCP 1.7s, CLS 0, total blocking time 0ms. Deployed network conditions may differ.
-- Three displayed WebP figures total approximately 264 KiB. Fonts are self-hosted; no client framework or external script is required.
+- Astro type/content check and static build pass.
+- Local mobile Lighthouse: performance, accessibility, best practices, and SEO each score 100. FCP approximately 0.6s, LCP 0.9s, CLS 0, total blocking time 0ms; deployed network performance may differ.
+- Browser checks pass at 1440px and 390px; all desktop source figures decode and mobile figure URLs return WebP images.
+- First publication is visible in both requested first viewports.
+- No horizontal overflow at 320, 390, 480, 600, 768, 1024, and 1440px, including 200% root text size at 390px.
+- axe reports zero WCAG A/AA violations. This automated result is not a substitute for screen-reader user testing.
+- Contact and resource links retain 44px target height; keyboard skip link and focus order work.
+- Both email addresses, the corrected advisor, undergraduate major/institution, and all three papers are checked in the rendered document.
+- With JavaScript disabled, the full reading and navigation experience still works. The emitted document has no runtime script; structured Person metadata remains.
 
-## Deployment
+## Publishing and maintenance
 
-The existing GitHub Pages workflow builds and publishes `dist/` on pushes to `main` in https://github.com/cosylsine/cosylsine.github.io. Public URL: https://cosylsine.github.io/.
-
-The original personal design document remains excluded from Git and the deployment. Downloaded source PDFs and unused image alternatives also remain local. Only the optimized display figures and the required LMEB license are included in the public assets.
+GitHub Actions publishes the static `dist/` build from `main` to https://cosylsine.github.io/. Content data remains in `src/data/profile.ts` and `src/data/publications.ts`; page structure and styling are small Astro/CSS files. The private original brief, screenshots, and downloaded source PDFs remain excluded from the public repository and deployed output.

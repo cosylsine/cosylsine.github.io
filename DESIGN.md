@@ -1,137 +1,89 @@
 ---
-name: Jiaxin Xu Academic Editorial Portfolio
-description: A restrained research portfolio for information retrieval and LLM agents.
+name: Jiaxin Xu Academic Homepage
+description: A concise personal academic page with a biography and publications.
 colors:
-  paper: "#f8f9f5"
-  surface: "#ffffff"
-  ink: "#233b32"
-  secondary: "#59675e"
-  accent: "#35624c"
-  rule: "#d7ded4"
-  figure: "#ffffff"
-  sage: "#e9eee4"
-  forest: "#223e34"
+  paper: "#ffffff"
+  ink: "#292929"
+  secondary: "#626262"
+  link: "#185d9c"
+  link-hover: "#0c3d6b"
 typography:
-  display:
-    fontFamily: "Source Serif 4 Variable, Georgia, serif"
-    fontSize: "clamp(4rem, 6.65vw, 6rem)"
-    fontWeight: 400
-    lineHeight: 1.06
-    letterSpacing: "-.04em"
-  headline:
-    fontFamily: "Source Serif 4 Variable, Georgia, serif"
-    fontSize: "40px"
-    fontWeight: 400
-    lineHeight: 1.18
-    letterSpacing: "-.035em"
-  publication-title:
-    fontFamily: "Source Serif 4 Variable, Georgia, serif"
-    fontSize: "26px"
-    fontWeight: 450
+  name:
+    fontFamily: "Source Sans 3 Variable, Helvetica Neue, sans-serif"
+    fontSize: "36px"
+    fontWeight: 600
+    lineHeight: 1.2
+    letterSpacing: "-.025em"
+  section:
+    fontFamily: "Source Sans 3 Variable, Helvetica Neue, sans-serif"
+    fontSize: "24px"
+    fontWeight: 600
     lineHeight: 1.3
-    letterSpacing: "-.022em"
+  publication-title:
+    fontFamily: "Source Sans 3 Variable, Helvetica Neue, sans-serif"
+    fontSize: "17px"
+    fontWeight: 600
+    lineHeight: 1.4
   body:
     fontFamily: "Source Sans 3 Variable, Helvetica Neue, sans-serif"
-    fontSize: "18px"
+    fontSize: "17px"
     fontWeight: 400
     lineHeight: 1.6
-  label:
+  metadata:
     fontFamily: "Source Sans 3 Variable, Helvetica Neue, sans-serif"
-    fontSize: "16px"
-    fontWeight: 600
-rounded:
-  small: "3px"
+    fontSize: "15px"
+    fontWeight: 400
+    lineHeight: 1.5
 spacing:
-  xs: "8px"
-  sm: "16px"
-  md: "24px"
-  lg: "32px"
-  xl: "48px"
-  section: "88px"
-components:
-  button-primary:
-    backgroundColor: "{colors.forest}"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.small}"
-    padding: "11px 20px"
-    height: "48px"
-  button-primary-hover:
-    backgroundColor: "{colors.accent}"
+  paragraph: "16px"
+  publication: "32px"
+  section: "42px"
+  page-inline: "24px"
 ---
 
 # Design System: Jiaxin Xu
 
-## Overview
+## Direction
 
-**Creative North Star: "Academic Editorial Portfolio"**
+A compact personal academic homepage. The user rejected the earlier design because large display type, contrasting section bands, repeated research copy, and promotional actions made it feel like a product website. This design therefore prioritizes a short introduction and a clear publication list.
 
-An open editorial layout with a clear personal identity and visible research evidence. Large serif name typography introduces Jiaxin Xu; authentic paper figures, varied section proportions, and a forest-green research band give the page its rhythm. Source Sans 3 keeps biographies, author lists, and resource links easy to scan.
+The references are [Jon Barron's homepage](https://jonbarron.info/) and [Andrej Karpathy's homepage](https://karpathy.ai/). Their useful principles are a recognizable personal introduction, ordinary reading typography, direct links, and research presented as a document. The implementation uses its own content and layout; no portrait or unsupported biographical detail is added to imitate a reference.
 
-The initial editorial direction is retained and reshaped following the user's request for a less rigid layout. The current implementation replaces the identity rail and monogram with a large name-and-biography opening, gives AOEB a lead-publication treatment, and uses figures sourced from the papers and authors' repositories.
+## Information architecture
 
-**Key Characteristics:**
+1. Jiaxin Xu / 许佳鑫.
+2. Two biography paragraphs: master's subject and institution, advisor, undergraduate major and institution, then research interests.
+3. Direct contact links: primary email address, secondary email labeled “Email (163),” and GitHub.
+4. Publications: AOEB, KaLM-Reranker-V1, and LMEB with equal visual weight.
+5. A small copyright line.
 
-- A prominent researcher identity, followed by research evidence.
-- A lead paper, paired supporting papers, and open engineering rows.
-- Authentic figures with source attribution and full-size links.
+There is no navigation bar, hero slogan, call-to-action button, news feed, separate research band, project list, education section, or contact panel. Those sections previously repeated facts already present in the biography and papers. Paper and code/model resources remain alongside the corresponding publication.
 
-## Colors
+## Color and type
 
-Off-white paper, green-black ink, forest green, and a pale sage contact field. Research figures retain the original authors' colors; the surrounding interface provides a quiet frame.
+A white page (#ffffff), dark gray text (#292929), secondary text (#626262), and blue links (#185d9c, #0c3d6b on hover). The original colors of research figures are the only substantial image color. No colored section backgrounds, shadows, cards, or gradients.
 
-- **Paper** (#f8f9f5): page and sticky navigation.
-- **Ink** (#233b32): headings and primary copy.
-- **Secondary** (#59675e): descriptions, metadata, and captions.
-- **Accent** (#35624c): interactive text and conference metadata.
-- **Rule** (#d7ded4): fine content separators.
-- **Figure / Surface** (#ffffff): uncropped paper-figure frames.
-- **Forest** (#223e34): research band and primary action.
-- **Sage** (#e9eee4): contact background.
-
-## Typography
-
-Source Serif 4 is the display voice; Source Sans 3 handles reading, metadata, and navigation. Two Latin variable WOFF2 files are served locally and preloaded with `font-display: swap`; Chinese names use platform fallback.
-
-- Name: `clamp(4rem, 6.65vw, 6rem)` on desktop and `clamp(3.3rem, 14.4vw, 5rem)` on mobile; 400 weight, 1.06 line height.
-- Hero research statement: 36px desktop and 30px mobile. The biography opener is 28px desktop and 24px mobile.
-- Section: 40px desktop, 32px mobile; 400 weight, 1.18 line height.
-- Publication: 32px for the lead paper and 26px for supporting papers on desktop; 24px on mobile; 450 weight.
-- Body: 18px base; descriptions 17px desktop and 16px mobile, with 1.6–1.65 line height.
-- Metadata and captions: 13–16px, with compact mobile figure captions at 12px. Jiaxin Xu's name uses 650 weight within author lists.
-- Reading measures: biography 48ch, project introduction 70ch, and project descriptions 65ch.
+Source Sans 3 is the sole web font, served locally as one Latin variable WOFF2 with `font-display: swap`; Chinese names use platform fallback. Body text is 17px with 1.6 line height. The desktop name is 36px, the Publications heading 24px, paper titles 17px, author and venue metadata 15px, and the footer 13px. Titles use weight 600. Jiaxin Xu is emphasized within the author preview. On mobile the name is 32px, the Chinese name 18px, and the section heading 22px.
 
 ## Layout
 
-Content is left aligned inside a 1160px maximum container. The opening pairs a large name and research statement with a short biography across two columns and an 88px gutter. A narrow news strip leads into the publications. AOEB spans the publication grid, with its figure beside the text; KaLM and LMEB follow as two supporting columns with figures above their text.
+The page is centered at a maximum width of 800px, with 24px side margins on narrow screens. Desktop content begins 70px from the top; mobile content begins at 34px. The profile ends 42px before Publications on desktop and 30px on mobile.
 
-The full-width forest research band separates publication evidence from open engineering rows. Education groups the master's and undergraduate entries beside their shared institution. Contact finishes the page on a pale sage field.
+Each desktop publication is a row: a 176px thumbnail, a 30px gap, then paper information. Source figures are contained within a 128px image height without cropping. All three papers use the same title size and layout. Publication rows are separated by 32px of whitespace, with no borders or card surfaces.
 
-At 1100px columns and gaps narrow. At 760px navigation becomes native disclosure and major sections reflow into one reading path. The mobile container has 24px side margins; figures precede publication text and retain their natural aspect ratios. Section separation is 88px desktop and 56px mobile, with tighter spacing inside related groups.
+At 600px and below, the publication list becomes text-first: thumbnails are hidden and each paper gains a “Figure” link to its full-size local image. Rows are separated by 25px. Contact and resource links wrap naturally. The mobile layout maintains the same content order as desktop.
 
-## Elevation & Depth
+## Components and behavior
 
-Flat content surfaces. Fine rules, white figure frames, and contrasting section backgrounds establish the groups. Only the open mobile navigation has a subtle `0 8px 12px #233b320a` shadow to clarify its overlay state.
+- **Profile:** a single name heading, two short paragraphs, and a wrapping contact list.
+- **Publication:** linked title, first three authors in their original order followed by “et al.,” venue/year, and the first two primary resource links. The full ordered author list and source metadata remain in the data file; the linked paper provides full scholarly attribution.
+- **Figure:** an uncropped, source-derived desktop thumbnail linked to the original local asset; a plain Figure link on mobile. Alternative text describes the actual figure. Source records remain in `docs/image-sources.md`.
+- **Links:** blue text with an underline on hover and a 2px visible focus outline offset by 4px. Contact and resource links have 44px minimum target height.
+- **Accessibility:** semantic document structure, a keyboard skip link, responsive reflow, and no reliance on JavaScript. There are no menus, copy controls, disclosures, animation, or loading states.
+- **Print:** full-width page content with publication rows kept together where possible.
 
-## Shapes
+## Content safeguards
 
-Rectangular editorial geometry. The primary action has a 3px radius and figure-expand controls have a 2px radius. The research illustrations are source-derived WebP assets, displayed with `object-fit: contain` and linked to their full-size files. A portrait is not required by the composition.
+Preserve real paper titles, author ordering, venues, and resource URLs. The advisor is Prof. Meishan Zhang. Undergraduate studies were in Computer Science and Technology at HIT Shenzhen; do not infer dates or a degree abbreviation. Keep the source-figure provenance record. Add a portrait, CV, Scholar profile, or honors only when authentic information is available.
 
-## Components
-
-- **Primary action:** a minimum 48px filled button, forest green at rest and accent on hover.
-- **Navigation:** opaque sticky header, text links on desktop, a native menu on mobile; Escape, outside click, and selection close the menu when JavaScript is available.
-- **Publication:** an attributed source figure, linked title, ordered author preview, venue/year, native full-author disclosure, summary, and text resource links. AOEB receives the lead position; supporting papers share a row on desktop.
-- **Research band:** a question-led introduction beside three research interests, with pale text and fine dividers on forest green.
-- **Project row:** a project name and resource type beside the engineering contribution; linked titles have minimum 44px targets.
-- **Education:** master's studies in Computer Technology, advised by Prof. Meishan Zhang, and undergraduate studies in Computer Science and Technology at HIT Shenzhen. Undergraduate dates and specific degree abbreviations remain unspecified.
-- **Contact:** two working mailto addresses, progressively enhanced copy controls, and an announced success or recovery message.
-- **Focus:** a 2px current-color outline offset by 5px, with the primary action using the accent; links use underline offset .22em. Selection uses #d9e8cc. Reduced motion disables smooth scrolling.
-
-## Do's and Don'ts
-
-- **Do** preserve authentic publication titles, author order, and attribution.
-- **Do** preserve complete source figures and maintain the provenance record in `docs/image-sources.md`.
-- **Do** use space and fine rules to establish content groups.
-- **Do** maintain visible focus and 44px resource targets.
-- **Don't** turn the page into rounded SaaS cards or introduce purple gradients.
-- **Don't** add decorative motion, fabricated portraits, or unsupported research claims.
+Do not reintroduce repeated research descriptions, decorative slogans, featured-paper marketing layouts, full-width color bands, or product-style calls to action. New information should earn its place by helping a reader understand the person or their work.
