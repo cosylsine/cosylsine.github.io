@@ -9,7 +9,7 @@ import { publications } from '../data/publications';
     <header class="profile" aria-labelledby="name-heading">
       <h1 id="name-heading">{profile.name}<span lang="zh-CN">{profile.chineseName}</span></h1>
       <div class="bio">
-        <p>I’m a master’s student in {profile.degree} at {profile.institution}, advised by <a href={profile.advisor.url}>{profile.advisor.name}</a>. I also studied {profile.undergraduateMajor} at HIT Shenzhen as an undergraduate.</p>
+        <p>I’m a master’s student in {profile.degree} at {profile.institution}, advised by <a href={profile.advisor.url}>{profile.advisor.name}</a>.</p>
         <p>My research focuses on information retrieval for LLM agents, particularly efficient reranking, agent-oriented evaluation, and long-horizon memory retrieval.</p>
       </div>
       <ul class="contact-links" aria-label="Contact and profiles">
@@ -22,6 +22,14 @@ import { publications } from '../data/publications';
     <section id="publications" aria-labelledby="publications-heading">
       <h2 id="publications-heading">Publications</h2>
       <div class="publication-list">{publications.map(paper => <Publication paper={paper}/>)}</div>
+    </section>
+    <section class="education" aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <p class="education-school">{profile.institution}</p>
+      <ul class="education-list">
+        <li><span>Master’s studies in {profile.degree}</span><span class="education-date">{profile.educationDates}</span></li>
+        <li><span>Undergraduate studies in {profile.undergraduateMajor}</span><span class="education-date">Started {profile.undergraduateStartYear}</span></li>
+      </ul>
     </section>
     <footer class="site-footer"><p>© {new Date().getFullYear()} {profile.name}</p></footer>
   </main>

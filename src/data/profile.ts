@@ -6,6 +6,7 @@ export const profile = {
   degree: 'Computer Technology',
   educationDates: 'Sep 2025 – Present',
   undergraduateMajor: 'Computer Science and Technology',
+  undergraduateStartYear: 2021,
   advisor: { name: 'Prof. Meishan Zhang', url: 'https://zhangmeishan.github.io/' },
   emails: ['jiaxinxu1357@gmail.com', 'cosy021224xjx@163.com'],
   github: 'https://github.com/cosylsine',

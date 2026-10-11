@@ -21,8 +21,8 @@ try {
     assert.equal(await page.locator('.publication').count(), 3);
     assert.equal(await page.locator('a[href="#"], a[href=""]').count(), 0);
     assert.equal(await page.locator('.bio a[href="https://zhangmeishan.github.io/"]').textContent(), 'Prof. Meishan Zhang');
-    assert.ok((await page.locator('.bio').textContent()).includes('Computer Science and Technology'));
-    assert.ok((await page.locator('.bio').textContent()).includes('HIT Shenzhen as an undergraduate'));
+    assert.ok((await page.locator('.education').textContent()).includes('Computer Science and Technology'));
+    assert.ok((await page.locator('.education').textContent()).includes('Harbin Institute of Technology, Shenzhen'));
     assert.equal(await page.locator('a[href^="mailto:"]').count(), 2);
     assert.equal(await page.locator('script:not([type="application/ld+json"])').count(), 0, 'Homepage should not need client JavaScript');
 

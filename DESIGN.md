@@ -1,6 +1,6 @@
 ---
 name: Jiaxin Xu Academic Homepage
-description: A concise personal academic page with a biography and publications.
+description: A concise personal academic page with a biography, publications, and education.
 colors:
   paper: "#ffffff"
   ink: "#292929"
@@ -52,18 +52,19 @@ The references are [Jon Barron's homepage](https://jonbarron.info/) and [Andrej 
 ## Information architecture
 
 1. Jiaxin Xu / 许佳鑫.
-2. Two biography paragraphs: master's subject and institution, advisor, undergraduate major and institution, then research interests.
+2. Two biography paragraphs: current master's subject and institution, advisor, then research interests.
 3. Direct contact links: primary email address, secondary email labeled “Email (163),” and GitHub.
 4. Publications: AOEB, KaLM-Reranker-V1, and LMEB with equal visual weight.
-5. A small copyright line.
+5. Education: one Harbin Institute of Technology, Shenzhen heading with master's and undergraduate rows.
+6. A small copyright line.
 
-There is no navigation bar, hero slogan, call-to-action button, news feed, separate research band, project list, education section, or contact panel. Those sections previously repeated facts already present in the biography and papers. Paper and code/model resources remain alongside the corresponding publication.
+There is no navigation bar, hero slogan, call-to-action button, news feed, separate research band, project list, or contact panel. Those sections previously repeated facts already present in the biography and papers. The compact Education section follows Publications, and its undergraduate details replace the former biography sentence. Paper and code/model resources remain alongside the corresponding publication.
 
 ## Color and type
 
 A white page (#ffffff), dark gray text (#292929), secondary text (#626262), and blue links (#185d9c, #0c3d6b on hover). The original colors of research figures are the only substantial image color. No colored section backgrounds, shadows, cards, or gradients.
 
-Source Sans 3 is the sole web font, served locally as one Latin variable WOFF2 with `font-display: swap`; Chinese names use platform fallback. Body text is 17px with 1.6 line height. The desktop name is 36px, the Publications heading 24px, paper titles 17px, author and venue metadata 15px, and the footer 13px. Titles use weight 600. Jiaxin Xu is emphasized within the author preview. On mobile the name is 32px, the Chinese name 18px, and the section heading 22px.
+Source Sans 3 is the sole web font, served locally as one Latin variable WOFF2 with `font-display: swap`; Chinese names use platform fallback. Body text is 17px with 1.6 line height. The desktop name is 36px, section headings 24px, paper titles 17px, author and venue metadata 15px, and the footer 13px. Titles use weight 600. Jiaxin Xu is emphasized within the author preview. On mobile the name is 32px, the Chinese name 18px, and section headings 22px.
 
 ## Layout
 
@@ -76,6 +77,7 @@ At 600px and below, the publication list becomes text-first: thumbnails are hidd
 ## Components and behavior
 
 - **Profile:** a single name heading, two short paragraphs, and a wrapping contact list.
+- **Education:** one shared school heading and two compact degree rows: master's in Computer Technology, Sep 2025 – Present; undergraduate studies in Computer Science and Technology, Started 2021. Keep the same quiet typography and unboxed layout as the rest of the page.
 - **Publication:** linked title, first three authors in their original order followed by “et al.,” venue/year, and the first two primary resource links. The full ordered author list and source metadata remain in the data file; the linked paper provides full scholarly attribution.
 - **Figure:** an uncropped, source-derived desktop thumbnail linked to the original local asset; a plain Figure link on mobile. Alternative text describes the actual figure. Source records remain in `docs/image-sources.md`.
 - **Links:** blue text with an underline on hover and a 2px visible focus outline offset by 4px. Contact and resource links have 44px minimum target height.
@@ -84,6 +86,6 @@ At 600px and below, the publication list becomes text-first: thumbnails are hidd
 
 ## Content safeguards
 
-Preserve real paper titles, author ordering, venues, and resource URLs. The advisor is Prof. Meishan Zhang. Undergraduate studies were in Computer Science and Technology at HIT Shenzhen; do not infer dates or a degree abbreviation. Keep the source-figure provenance record. Add a portrait, CV, Scholar profile, or honors only when authentic information is available.
+Preserve real paper titles, author ordering, venues, and resource URLs. The advisor is Prof. Meishan Zhang. Both degrees are at HIT Shenzhen: master's in Computer Technology, Sep 2025 – Present, and undergraduate studies in Computer Science and Technology, Started 2021. Do not infer an undergraduate graduation year or a specific degree abbreviation. Keep the source-figure provenance record. Add a portrait, CV, Scholar profile, or honors only when authentic information is available.
 
 Do not reintroduce repeated research descriptions, decorative slogans, featured-paper marketing layouts, full-width color bands, or product-style calls to action. New information should earn its place by helping a reader understand the person or their work.

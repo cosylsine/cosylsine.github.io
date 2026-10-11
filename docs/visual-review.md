@@ -15,14 +15,15 @@ The installed `frontend-design` guidance and Impeccable's distill, quieter, and 
 
 ## What was removed and preserved
 
-The document now has one opening profile and one Publications section:
+The document has an opening profile, Publications, and a compact Education section requested in a later update:
 
-- Name and two short paragraphs cover master's studies, the confirmed advisor, undergraduate studies, and research interests.
+- Name and two short paragraphs cover current master's studies, the confirmed advisor, and research interests.
+- A compact Education section follows Publications: one shared HIT Shenzhen institution heading, master's studies from Sep 2025 to present, and undergraduate studies marked Started 2021. The undergraduate graduation year is not inferred. The duplicate undergraduate sentence was removed from the biography.
 - Two mailto links and GitHub sit directly beneath the introduction.
 - Three equally weighted publication rows contain the authentic title, first three authors with Jiaxin Xu emphasized, venue/year, and Paper plus Code/Models links.
 - Desktop source figures are small, complete thumbnails. On mobile, Figure links open the original-sized assets without squeezing unreadable charts next to titles.
 
-Removed the top navigation, mobile menu, hero slogans, promotional buttons, News strip, research color band, repeated project section, separate Education and Contact blocks, oversized serif titles, author-disclosure controls, clipboard widgets, and arrow icons. Research topics now appear once in the biography. Code and model resources remain attached to their papers. Confirmed factual metadata and complete author lists remain in the content data, and original figure attribution remains in `image-sources.md` and linked papers.
+Removed the top navigation, mobile menu, hero slogans, promotional buttons, News strip, research color band, repeated project section, oversized Education and Contact panels, oversized serif titles, author-disclosure controls, clipboard widgets, and arrow icons. Research topics now appear once in the biography. Code and model resources remain attached to their papers. Confirmed factual metadata and complete author lists remain in the content data, and original figure attribution remains in `image-sources.md` and linked papers.
 
 The page uses a single self-hosted font, white background, dark text, and ordinary blue links. It has no client JavaScript. The unused font dependency and obsolete components were removed.
 
@@ -30,18 +31,18 @@ The page uses a single self-hosted font, white background, dark text, and ordina
 
 Chrome screenshots cover desktop 1440 × 1000 and mobile 390 × 844. Both full-page and publication captures are stored in ignored `artifacts/`.
 
-- Desktop content height: 1004px, previously 4210px. All three publication records fit in the first desktop viewport.
-- Mobile content height: 1085px, previously 5665px. The first publication title starts at approximately y=493 rather than appearing after a long landing-page introduction.
-- Desktop publication titles begin at approximately y=450. The name, biography, contact links, and research evidence have a short reading path.
+- Desktop content height: 1168px, previously 4210px. All three publication records fit in the first desktop viewport.
+- Mobile content height: 1289px, previously 5665px. The first publication title starts at approximately y=438 rather than appearing after a long landing-page introduction.
+- Desktop publication titles begin at approximately y=423. The name, biography, contact links, and research evidence have a short reading path.
 - An accessibility scan identified an inline advisor link distinguished only by color. A persistent underline was added before final captures.
 - An independent reviewer inspected the finished desktop/mobile captures and source. They found the result consistent with the revised personal-homepage brief, with clean wrapping and no concrete visual blockers or omissions.
 
-No additional decoration or optional sections were added after review.
+The later user-requested Education addition uses plain text rows and the existing type scale. Desktop and mobile captures were checked again after this addition; layout and accessibility checks passed.
 
 ## Verification
 
 - Astro type/content check and static build pass.
-- Local mobile Lighthouse: performance, accessibility, best practices, and SEO each score 100. FCP approximately 0.6s, LCP 0.9s, CLS 0, total blocking time 0ms; deployed network performance may differ.
+- Lighthouse from the preceding simplification pass (before the Education addition): performance, accessibility, best practices, and SEO each score 100. FCP approximately 0.6s, LCP 0.9s, CLS 0, total blocking time 0ms; deployed network performance may differ.
 - Browser checks pass at 1440px and 390px; all desktop source figures decode and mobile figure URLs return WebP images.
 - First publication is visible in both requested first viewports.
 - No horizontal overflow at 320, 390, 480, 600, 768, 1024, and 1440px, including 200% root text size at 390px.
