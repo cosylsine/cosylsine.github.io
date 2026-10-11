@@ -43,6 +43,8 @@ The original section screenshots were polluted by sticky navigation. Final secti
 - With JavaScript disabled, publications, contact links, and the native mobile menu remain usable.
 - All nine publication resource links have 44px minimum target height. Project title targets are also 44px.
 - Production dependency audit: zero reported vulnerabilities.
+- Mobile Lighthouse lab scores: performance 100, accessibility 100, best practices 100, SEO 100. Final report has no failed binary audits. LCP is approximately 1.5 seconds, CLS 0, and total blocking time 0 ms on the local production preview; deployed network performance may differ.
+- Lighthouse additionally identified a redundant wordmark accessibility label that omitted the visible Chinese name. Removing the override lets its complete visible text supply the accessible name. The final Lighthouse run confirmed the correction; visual layout is unchanged.
 - Public code, model, conference, advisor, and profile resources returned HTTP 200 during link verification.
 - Runtime has no client framework or external script requests. HTML is approximately 20 KB and the complete static artifact approximately 196 KB, including two self-hosted fonts and a social preview image.
 
