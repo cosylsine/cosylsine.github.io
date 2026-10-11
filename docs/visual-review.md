@@ -1,5 +1,7 @@
 # Academic homepage review
 
+The review below records the enrichment revision. The Open source section was subsequently removed at the owner's request on 2026-10-12; its dedicated CSS was also removed. The profile, Publications, Education, and existing paper resource links remain. The earlier full-page heights below include the now-removed section.
+
 ## Direction and evidence
 
 The user requested a fuller personal homepage after the earlier simplification, while retaining its quiet academic character. [Xin Zhang's homepage](https://izhx.github.io/) informed the fuller publication records and concise description of actual open-source work. Earlier references remain [Jon Barron](https://jonbarron.info/) for research thumbnails and [Andrej Karpathy](https://karpathy.ai/) for direct personal writing. No reference author's biography, achievements, images, or code were copied.

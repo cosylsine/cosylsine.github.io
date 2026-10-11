@@ -1,6 +1,6 @@
 ---
 name: Jiaxin Xu Academic Homepage
-description: A concise personal academic page with a profile image, biography, publications, education, and public code contributions.
+description: A concise personal academic page with a profile image, biography, publications, and education.
 colors:
   paper: "#ffffff"
   ink: "#292929"
@@ -47,7 +47,7 @@ spacing:
 
 A compact personal academic homepage. The user rejected the earlier design because large display type, contrasting section bands, repeated research copy, and promotional actions made it feel like a product website. This design therefore prioritizes a short introduction and a clear publication list.
 
-The references are [Jon Barron's homepage](https://jonbarron.info/), [Andrej Karpathy's homepage](https://karpathy.ai/), and [Xin Zhang's homepage](https://izhx.github.io/). Their useful principles are a recognizable personal introduction, ordinary reading typography, direct links, complete scholarly records, and concrete public code contributions. The owner-selected profile image and fuller paper details enrich the existing document without adding unsupported biographical material.
+The references are [Jon Barron's homepage](https://jonbarron.info/), [Andrej Karpathy's homepage](https://karpathy.ai/), and [Xin Zhang's homepage](https://izhx.github.io/). Their useful principles are a recognizable personal introduction, ordinary reading typography, direct links, and complete scholarly records. The owner-selected profile image and fuller paper details enrich the existing document without adding unsupported biographical material.
 
 ## Information architecture
 
@@ -56,8 +56,7 @@ The references are [Jon Barron's homepage](https://jonbarron.info/), [Andrej Kar
 3. Direct contact links: primary email address, secondary email labeled “Email (163),” and GitHub.
 4. Publications: AOEB, KaLM-Reranker-V1, and LMEB with equal visual weight, complete authors, and a brief research description.
 5. Education: one Harbin Institute of Technology, Shenzhen heading with master's and undergraduate rows.
-6. Open source: one short paragraph on verified AOEB contributions, linked to the public commit history.
-7. A small copyright line.
+6. A small copyright line.
 
 There is no navigation bar, hero slogan, call-to-action button, news feed, separate research band, project list, or contact panel. Those sections previously repeated facts already present in the biography and papers. The compact Education section follows Publications, and its undergraduate details replace the former biography sentence. Paper and code/model resources remain alongside the corresponding publication.
 
@@ -82,7 +81,6 @@ At 600px and below, the publication list becomes text-first: thumbnails are hidd
 - **Profile:** a single name heading, the supplied avatar, two short paragraphs, and a wrapping contact list.
 - **Education:** one shared school heading and two compact degree rows: master's in Computer Technology, Sep 2025 – Present; undergraduate studies in Computer Science and Technology, Started 2021. Keep the same quiet typography and unboxed layout as the rest of the page.
 - **Publication:** linked title, full authors in their original order, venue/year, a one-sentence description, and all three existing resource links. AOEB uses Paper, Code, and Conference; KaLM-Reranker-V1 uses Paper, Models, and Nano model; LMEB uses Paper, Code, and Project. Keep resource choices in the data file.
-- **Open source:** one unboxed paragraph after Education describing contributions to AOEB's model adapters, task integration, and evaluation tooling. Link to [the owner's public commits](https://github.com/vec-ai/aoeb/commits/main/?author=cosylsine). Evidence: commits [47b275b](https://github.com/vec-ai/aoeb/commit/47b275b6603715ede80193eaef8601507bd34952) and [4190ca0](https://github.com/vec-ai/aoeb/commit/4190ca09b1be69198747d534173661fed6937457).
 - **Figure:** an uncropped, source-derived desktop thumbnail linked to the original local asset; a plain Figure link on mobile. Alternative text describes the actual figure. Source records remain in `docs/image-sources.md`.
 - **Links:** blue text with an underline on hover and a 2px visible focus outline offset by 4px. Contact and resource links have 44px minimum target height.
 - **Accessibility:** semantic document structure, a keyboard skip link, responsive reflow, and no reliance on JavaScript. There are no menus, copy controls, disclosures, animation, or loading states.
