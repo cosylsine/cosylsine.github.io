@@ -8,6 +8,7 @@ import { publications } from '../data/publications';
   <main id="main" class="page">
     <header class="profile" aria-labelledby="name-heading">
       <h1 id="name-heading">{profile.name}<span lang="zh-CN">{profile.chineseName}</span></h1>
+      <img class="profile-image" src="/images/profile.webp" alt="Jiaxin Xu’s chosen profile image" width="480" height="584" decoding="async" fetchpriority="high"/>
       <div class="bio">
         <p>I’m a master’s student in {profile.degree} at {profile.institution}, advised by <a href={profile.advisor.url}>{profile.advisor.name}</a>.</p>
         <p>My research focuses on information retrieval for LLM agents, particularly efficient reranking, agent-oriented evaluation, and long-horizon memory retrieval.</p>
@@ -30,6 +31,10 @@ import { publications } from '../data/publications';
         <li><span>Master’s studies in {profile.degree}</span><span class="education-date">{profile.educationDates}</span></li>
         <li><span>Undergraduate studies in {profile.undergraduateMajor}</span><span class="education-date">Started {profile.undergraduateStartYear}</span></li>
       </ul>
+    </section>
+    <section class="open-source" aria-labelledby="open-source-heading">
+      <h2 id="open-source-heading">Open source</h2>
+      <p>I contribute to <a href="https://github.com/vec-ai/aoeb">AOEB</a>’s model adapters, task integration, and evaluation tooling. You can find my work in the <a href="https://github.com/vec-ai/aoeb/commits/main/?author=cosylsine">commit history</a>.</p>
     </section>
     <footer class="site-footer"><p>© {new Date().getFullYear()} {profile.name}</p></footer>
   </main>

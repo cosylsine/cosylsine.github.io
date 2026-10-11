@@ -1,4 +1,10 @@
-# Research image sources
+# Image sources
+
+## Profile image
+
+The owner supplied the profile image on 2026-10-12 and requested its use on the homepage. `public/images/profile.webp` preserves the full image and aspect ratio, resized to 480 × 584 pixels and encoded as WebP at quality 85 (30,298 bytes). Embedded source metadata is omitted. It is presented as the owner's chosen profile image, without claiming it depicts Jiaxin Xu. Its explicit dimensions reserve layout space before loading.
+
+## Research figures
 
 Prepared on 2026-10-11 from the original publications and their authors' repositories, at the request of Jiaxin Xu, a coauthor of the three papers. These are real research figures; no figure content, labels, colors, or results were redrawn or generated. All display assets preserve the original aspect ratio and were resized to 1200 pixels wide and encoded as WebP at quality 88.
 

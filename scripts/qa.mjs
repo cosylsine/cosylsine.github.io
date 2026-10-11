@@ -25,6 +25,10 @@ try {
     assert.ok((await page.locator('.education').textContent()).includes('Harbin Institute of Technology, Shenzhen'));
     assert.equal(await page.locator('a[href^="mailto:"]').count(), 2);
     assert.equal(await page.locator('script:not([type="application/ld+json"])').count(), 0, 'Homepage should not need client JavaScript');
+    await page.locator('.profile-image').evaluate(async image => {
+      await image.decode();
+      if (!image.naturalWidth) throw new Error('Profile image did not load');
+    });
 
     if (name === 'desktop') {
       for (const figure of await page.locator('.paper-thumbnail img').all()) {

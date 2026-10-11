@@ -1,56 +1,42 @@
-# Minimal academic homepage review
+# Academic homepage review
 
-## User feedback and direction
+## Direction and evidence
 
-The user rejected the previous revision as too busy, too artificial, and closer to a product landing page than a personal homepage. More visual variety was not the right response to the earlier layout complaint. This revision prioritizes a short, recognizable academic profile and removes duplicated information.
+The user requested a fuller personal homepage after the earlier simplification, while retaining its quiet academic character. [Xin Zhang's homepage](https://izhx.github.io/) informed the fuller publication records and concise description of actual open-source work. Earlier references remain [Jon Barron](https://jonbarron.info/) for research thumbnails and [Andrej Karpathy](https://karpathy.ai/) for direct personal writing. No reference author's biography, achievements, images, or code were copied.
 
-Actual personal homepages were opened and inspected:
+The owner supplied the profile image and confirmed that there are no additional materials for internships, awards, teaching, or personal interests. The image is used as their chosen avatar, without identifying the person depicted as Jiaxin Xu. Its full aspect ratio is retained, and the optimized asset is approximately 30 KB.
 
-- [Jon Barron](https://jonbarron.info/): compact personal introduction, ordinary resource links, and small research thumbnails beside publication records. This is the main structural reference.
-- [Andrej Karpathy](https://karpathy.ai/): direct first-person biographical writing and ordinary links to work. The personal tone is relevant; his long career timeline and decorative details were not copied.
+The installed frontend-design and Impeccable guidance informed critique, typesetting, layout, and polish. The Impeccable context launcher previously failed because its download checksum could not be verified; local context and skill references were read directly. No successful CLI detector run is claimed.
 
-Browser captures of these references are in ignored `artifacts/references/`. Their text, images, and code were not copied into the site. Other attempted reference pages were unavailable and were not used as design evidence.
+## Content and layout
 
-The installed `frontend-design` guidance and Impeccable's distill, quieter, and craft-floor references informed the work. The Impeccable context launcher had failed earlier in this session because the download checksum could not be verified; project context was read directly. No successful CLI detector run is claimed.
+- A small profile image accompanies the name and two-paragraph introduction. On desktop it sits beside the biography; on mobile it sits beside the name, followed by full-width text.
+- Three equally weighted publication entries show full ordered author lists, Jiaxin Xu emphasized, venue/year, a one-sentence explanation, and the existing paper/code/model/project resources.
+- Actual paper figures remain uncropped desktop thumbnails. Mobile readers can open the same figures through ordinary text links.
+- Education retains both HIT Shenzhen degrees: master's studies in Computer Technology, Sep 2025–Present; undergraduate studies in Computer Science and Technology, Started 2021. No graduation date is inferred.
+- Open source adds one short paragraph about personal AOEB contributions, with a link to the author's commit history. Model adapters and task integration are evidenced by [47b275b](https://github.com/vec-ai/aoeb/commit/47b275b6603715ede80193eaef8601507bd34952); evaluation tooling is evidenced by [4190ca0](https://github.com/vec-ai/aoeb/commit/4190ca09b1be69198747d534173661fed6937457). No contribution to an upstream project is claimed merely from a submitted pull request.
 
-## What was removed and preserved
-
-The document has an opening profile, Publications, and a compact Education section requested in a later update:
-
-- Name and two short paragraphs cover current master's studies, the confirmed advisor, and research interests.
-- A compact Education section follows Publications: one shared HIT Shenzhen institution heading, master's studies from Sep 2025 to present, and undergraduate studies marked Started 2021. The undergraduate graduation year is not inferred. The duplicate undergraduate sentence was removed from the biography.
-- Two mailto links and GitHub sit directly beneath the introduction.
-- Three equally weighted publication rows contain the authentic title, first three authors with Jiaxin Xu emphasized, venue/year, and Paper plus Code/Models links.
-- Desktop source figures are small, complete thumbnails. On mobile, Figure links open the original-sized assets without squeezing unreadable charts next to titles.
-
-Removed the top navigation, mobile menu, hero slogans, promotional buttons, News strip, research color band, repeated project section, oversized Education and Contact panels, oversized serif titles, author-disclosure controls, clipboard widgets, and arrow icons. Research topics now appear once in the biography. Code and model resources remain attached to their papers. Confirmed factual metadata and complete author lists remain in the content data, and original figure attribution remains in `image-sources.md` and linked papers.
-
-The page uses a single self-hosted font, white background, dark text, and ordinary blue links. It has no client JavaScript. The unused font dependency and obsolete components were removed.
+The 800px white reading page, single local font, dark type, blue links, and plain headings remain. The page contains no navigation menu, promotional CTA, cards, gradients, decorative motion, duplicated news feed, or runtime JavaScript.
 
 ## Rendered critique and polish
 
-Chrome screenshots cover desktop 1440 × 1000 and mobile 390 × 844. Both full-page and publication captures are stored in ignored `artifacts/`.
+Chrome screenshots were inspected at 1440 × 1000 and 390 × 844, including full-page and publication captures. Screenshots and the machine-readable report remain in ignored `artifacts/`.
 
-- Desktop content height: 1168px, previously 4210px. All three publication records fit in the first desktop viewport.
-- Mobile content height: 1289px, previously 5665px. The first publication title starts at approximately y=438 rather than appearing after a long landing-page introduction.
-- Desktop publication titles begin at approximately y=423. The name, biography, contact links, and research evidence have a short reading path.
-- An accessibility scan identified an inline advisor link distinguished only by color. A persistent underline was added before final captures.
-- An independent reviewer inspected the finished desktop/mobile captures and source. They found the result consistent with the revised personal-homepage brief, with clean wrapping and no concrete visual blockers or omissions.
+The added avatar gives the introduction a recognizable personal element. It uses a 160px desktop width and 96px mobile width, so the name and biography remain primary. Paper titles carry the strongest color and weight within each record; authors use quieter 15px text, followed by the venue and 16px explanation. Figure proportions, typography, and inter-paper spacing stay consistent.
 
-The later user-requested Education addition uses plain text rows and the existing type scale. Desktop and mobile captures were checked again after this addition; layout and accessibility checks passed.
+The first paper starts at y=423 on desktop and y=517 on mobile, within both requested first viewports. Full content height is 1538px on desktop and 1901px on mobile. The additional length comes from useful scholarly detail and verified contribution information. Photos and text have no overlap, stretched images, or clipped content in the inspected captures.
+
+An independent reviewer inspected all four desktop/mobile full-page and first-viewport captures. They found no visual blockers and confirmed that the profile, publications, Education, and short Open source section maintain a clear academic reading order.
 
 ## Verification
 
-- Astro type/content check and static build pass.
-- Lighthouse from the preceding simplification pass (before the Education addition): performance, accessibility, best practices, and SEO each score 100. FCP approximately 0.6s, LCP 0.9s, CLS 0, total blocking time 0ms; deployed network performance may differ.
-- Browser checks pass at 1440px and 390px; all desktop source figures decode and mobile figure URLs return WebP images.
-- First publication is visible in both requested first viewports.
-- No horizontal overflow at 320, 390, 480, 600, 768, 1024, and 1440px, including 200% root text size at 390px.
-- axe reports zero WCAG A/AA violations. This automated result is not a substitute for screen-reader user testing.
-- Contact and resource links retain 44px target height; keyboard skip link and focus order work.
-- Both email addresses, the corrected advisor, undergraduate major/institution, and all three papers are checked in the rendered document.
-- With JavaScript disabled, the full reading and navigation experience still works. The emitted document has no runtime script; structured Person metadata remains.
+- Astro check: zero errors, warnings, or hints; static build passes.
+- Browser checks pass at 1440px and 390px; the profile image and desktop research figures decode successfully, and mobile figure links return WebP images.
+- No horizontal overflow at 320, 390, 480, 600, 768, 1024, or 1440px, including 200% root text size at 390px.
+- axe reports zero WCAG A/AA violations in both requested viewports. Contact and resource links retain 44px target heights, and keyboard focus starts with the skip link.
+- Both emails, the corrected advisor, the education institution/major, and all three publications remain available. The page works with JavaScript disabled and emits no runtime scripts.
+- Earlier Lighthouse scores of 100 predate the Education and avatar/content additions; they are not reported as a measurement of this revision.
 
 ## Publishing and maintenance
 
-GitHub Actions publishes the static `dist/` build from `main` to https://cosylsine.github.io/. Content data remains in `src/data/profile.ts` and `src/data/publications.ts`; page structure and styling are small Astro/CSS files. The private original brief, screenshots, and downloaded source PDFs remain excluded from the public repository and deployed output.
+GitHub Actions publishes the static build from `main` to https://cosylsine.github.io/. Profile and publication data are in `src/data/`; layout and styles use small Astro/CSS files. Image provenance is recorded in `docs/image-sources.md`. The private original brief, screenshots, and downloaded paper sources stay outside the public repository and deployed output.

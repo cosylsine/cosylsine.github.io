@@ -10,10 +10,11 @@ const { paper } = Astro.props;
   </a>
   <div class="paper-info">
     <h3 id={`paper-${paper.id}`}><a href={paper.links[0].url}>{paper.title}</a></h3>
-    <p class="authors">{paper.authors.slice(0, 3).map((author, index) => <>{index > 0 && ', '}{author === profile.name ? <strong>{author}</strong> : author}</>)}, et al.</p>
+    <p class="authors">{paper.authors.map((author, index) => <>{index > 0 && ', '}{author === profile.name ? <strong>{author}</strong> : author}</>)}</p>
     <p class="venue">{paper.venue}{paper.venue === 'Preprint' && `, ${paper.year}`}</p>
+    <p class="paper-description">{paper.description}</p>
     <ul class="resource-links" aria-label={`Resources for ${paper.id.toUpperCase()}`}>
-      {paper.links.slice(0, 2).map(link => <li><a href={link.url}>{link.label}</a></li>)}
+      {paper.links.map(link => <li><a href={link.url}>{link.label}</a></li>)}
       <li class="mobile-figure"><a href={paper.image.src} target="_blank" aria-label={`View figure: ${paper.figureCaption}`}>Figure</a></li>
     </ul>
   </div>
