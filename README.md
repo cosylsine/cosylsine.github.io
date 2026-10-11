@@ -31,9 +31,9 @@ No portrait, CV, Scholar link, undergraduate details, or unconfirmed honors are 
 
 ## GitHub Pages
 
-Target repository: `cosylsine/cosylsine.github.io`; target URL: https://cosylsine.github.io/.
+Live site: https://cosylsine.github.io/. Repository: https://github.com/cosylsine/cosylsine.github.io.
 
-The included `.github/workflows/deploy.yml` checks and builds the site on pushes to `main`, then deploys `dist/` to GitHub Pages. In repository **Settings → Pages → Build and deployment**, set the source to **GitHub Actions**. Once repository authentication is available, push `main`; subsequent content edits deploy automatically.
+The repository is configured to publish with **GitHub Actions**. The included `.github/workflows/deploy.yml` checks and builds the site on pushes to `main`, then deploys `dist/` to GitHub Pages. Subsequent content edits deploy automatically after `git push origin main`.
 
 The public artifact is only `dist/`; development documents, QA screenshots, and dependencies are not included in the deployment. The original personal design brief is kept local and excluded from Git because it contains non-public context. The site configuration assumes a user site at the domain root. For a project repository, set Astro's `base` and adjust absolute public asset URLs before deploying.
 

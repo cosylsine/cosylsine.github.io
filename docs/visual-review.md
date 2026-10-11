@@ -50,6 +50,10 @@ The original section screenshots were polluted by sticky navigation. Final secti
 
 ## Deployment state
 
-GitHub Pages workflow is ready for `cosylsine/cosylsine.github.io`. Local SSH authentication succeeded as cosylsine; the target repository did not exist and GitHub CLI had no API authentication. Publication requires local GitHub login to create the repository and enable Pages. No live deployment is claimed until that step succeeds.
+Published at https://cosylsine.github.io/ from the public repository https://github.com/cosylsine/cosylsine.github.io.
+
+After the user completed local GitHub authentication, the repository was created and `main` pushed. GitHub initially enabled legacy branch-based Pages automatically; the publishing source was switched to GitHub Actions so the site serves Astro's `dist/` output. The custom build and deployment workflow completed successfully: https://github.com/cosylsine/cosylsine.github.io/actions/runs/38147036293. Pages reports `build_type: workflow`, `status: built`, and HTTPS enforced.
+
+The deployed page and its stylesheet, local fonts, favicon, and social image are checked directly over HTTPS. Future site changes pushed to `main` deploy through the included workflow.
 
 The original design document is intentionally excluded from Git and the static deployment because it contains non-public context.
