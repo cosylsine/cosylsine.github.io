@@ -1,0 +1,48 @@
+---
+import type { Publication } from '../data/publications';
+interface Props { id: Publication['id']; caption: string; }
+const { id, caption } = Astro.props;
+---
+<figure class:list={['research-figure', `figure-${id}`]}>
+  <svg viewBox="0 0 300 190" role="img" aria-labelledby={`figure-title-${id}`}>
+    <title id={`figure-title-${id}`}>{caption}</title>
+    {id === 'aoeb' && <>
+      <text x="22" y="30" class="diagram-title">Agent-oriented retrieval</text>
+      <rect x="22" y="76" width="68" height="44" rx="3" class="diagram-strong"/>
+      <text x="56" y="102" text-anchor="middle" class="diagram-on-strong">Agent</text>
+      <path d="M90 98h30M120 59v90M120 59h24M120 89h24M120 119h24M120 149h24" class="diagram-line"/>
+      {['Code', 'Tools', 'Reasoning', 'Memory'].map((label, i) => <>
+        <rect x="144" y={46 + i * 30} width="132" height="25" rx="2" class="diagram-box"/>
+        <text x="158" y={63 + i * 30}>{label}</text>
+      </>)}
+      <text x="22" y="167" class="diagram-note">Text + visual data</text>
+    </>}
+    {id === 'kalm' && <>
+      <text x="22" y="30" class="diagram-title">Encode once. Rerank efficiently.</text>
+      <rect x="22" y="48" width="106" height="30" rx="2" class="diagram-box"/>
+      <text x="75" y="68" text-anchor="middle">Passages</text>
+      <path d="M128 63h20" class="diagram-line"/>
+      <rect x="148" y="48" width="130" height="30" rx="2" class="diagram-box"/>
+      <text x="213" y="68" text-anchor="middle">Compressed vectors</text>
+      <path d="M213 78v24M128 117h20" class="diagram-line"/>
+      <rect x="22" y="102" width="106" height="30" rx="2" class="diagram-box"/>
+      <text x="75" y="122" text-anchor="middle">Query context</text>
+      <rect x="148" y="102" width="130" height="30" rx="2" class="diagram-strong"/>
+      <text x="213" y="122" text-anchor="middle" class="diagram-on-strong">Cross-attention</text>
+      <path d="M213 132v17" class="diagram-line"/>
+      <text x="213" y="165" text-anchor="middle">Relevance scores</text>
+      <text x="22" y="165" class="diagram-note">Offline → online</text>
+    </>}
+    {id === 'lmeb' && <>
+      <text x="22" y="30" class="diagram-title">Memory across time & context</text>
+      {['Episodic', 'Dialogue', 'Semantic', 'Procedural'].map((label, i) => <>
+        <rect x={22 + (i % 2) * 132} y={49 + Math.floor(i / 2) * 38} width="122" height="30" rx="2" class="diagram-box"/>
+        <text x={83 + (i % 2) * 132} y={69 + Math.floor(i / 2) * 38} text-anchor="middle">{label}</text>
+      </>)}
+      <path d="M83 117v18h132v-18M149 135v14" class="diagram-line"/>
+      <rect x="63" y="148" width="172" height="25" rx="2" class="diagram-strong"/>
+      <text x="149" y="165" text-anchor="middle" class="diagram-on-strong">Long-horizon retrieval</text>
+    </>}
+  </svg>
+  <figcaption>{caption}</figcaption>
+</figure>

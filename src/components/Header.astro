@@ -1,0 +1,25 @@
+---
+const links = [['About', '#about'], ['Research', '#research'], ['Publications', '#publications'], ['Projects', '#projects'], ['Contact', '#contact']];
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="#home" aria-label="Jiaxin Xu, back to top">Jiaxin Xu<span lang="zh-CN">许佳鑫</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      {links.map(([label, href]) => <a href={href}>{label}</a>)}
+    </nav>
+    <details class="mobile-nav">
+      <summary>Menu<svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 6h14M3 14h14" stroke="currentColor" stroke-width="1.5"/></svg></summary>
+      <nav aria-label="Mobile navigation">{links.map(([label, href]) => <a href={href}>{label}</a>)}</nav>
+    </details>
+  </div>
+</header>
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.mobile-nav');
+  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.open = false; }));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu?.open) { menu.open = false; menu.querySelector('summary')?.focus(); }
+  });
+  document.addEventListener('click', event => {
+    if (menu?.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+  });
+</script>

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+.env*
+Jiaxin_Xu_Academic_Homepage_Design.md
+artifacts/
+.impeccable/mocks/
+.impeccable/screenshots/
+.impeccable/config.local.json

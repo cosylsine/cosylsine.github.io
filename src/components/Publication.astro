@@ -1,0 +1,24 @@
+---
+import ResearchFigure from './ResearchFigure.astro';
+import Arrow from './Arrow.astro';
+import type { Publication } from '../data/publications';
+import { profile } from '../data/profile';
+interface Props { paper: Publication; }
+const { paper } = Astro.props;
+---
+<article class="publication" aria-labelledby={`paper-${paper.id}`}>
+  <ResearchFigure id={paper.id} caption={paper.figureCaption}/>
+  <div class="publication-content">
+    <h3 id={`paper-${paper.id}`}><a href={paper.links[0].url}>{paper.title}</a></h3>
+    <p class="authors">{paper.authors.slice(0, 3).map((author, index) => <>{index > 0 && ', '}{author === profile.name ? <strong>{author}</strong> : author}</>)}, et al.</p>
+    <p class="venue"><span class:list={['venue-name', { 'conference-venue': paper.venue !== 'Preprint' }]}>{paper.venue}</span>{paper.venue === 'Preprint' && <span>{paper.year}</span>}</p>
+    <details class="all-authors">
+      <summary><svg class="author-toggle" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10"/><path class="author-toggle-vertical" d="M8 3v10"/></svg>All authors</summary>
+      <p>{paper.authors.map((author, index) => <>{index > 0 && ', '}{author === profile.name ? <strong>{author}</strong> : author}</>)}</p>
+    </details>
+    <p class="paper-description">{paper.description}</p>
+    <ul class="resource-links" aria-label={`Resources for ${paper.id.toUpperCase()}`}>
+      {paper.links.map(link => <li><a href={link.url}>{link.label}<Arrow diagonal/></a></li>)}
+    </ul>
+  </div>
+</article>
