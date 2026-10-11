@@ -5,22 +5,24 @@
   "extensions": {
     "colorMeta": {
       "paper": { "role": "neutral", "displayName": "Paper white" },
-      "ink": { "role": "neutral", "displayName": "Deep blue ink" },
-      "accent": { "role": "primary", "displayName": "Research blue" }
+      "ink": { "role": "neutral", "displayName": "Green-black ink" },
+      "accent": { "role": "primary", "displayName": "Research green" },
+      "forest": { "role": "primary", "displayName": "Forest research field" },
+      "sage": { "role": "neutral", "displayName": "Sage contact field" }
     },
     "typographyMeta": {
-      "display": { "displayName": "Research statement", "purpose": "Hero headline" },
+      "display": { "displayName": "Researcher name", "purpose": "Prominent personal identity in the hero" },
       "publication-title": { "displayName": "Paper title", "purpose": "Readable scholarly titles" }
     },
-    "shadows": [{ "name": "mobile-menu", "value": "0 8px 12px #24394b0a", "purpose": "Open navigation overlay" }],
+    "shadows": [{ "name": "mobile-menu", "value": "0 8px 12px #233b320a", "purpose": "Open navigation overlay" }],
     "breakpoints": [{ "name": "compact-desktop", "value": "1100px" }, { "name": "mobile", "value": "760px" }]
   },
   "components": [
     {
       "name": "Primary action", "kind": "button", "refersTo": "button-primary",
       "description": "Publication entry point",
-      "html": "<a class=\"ds-primary\" href=\"#publications\">View publications</a>",
-      "css": ".ds-primary{display:inline-flex;align-items:center;min-height:48px;background:var(--ink);color:var(--paper);padding:10px 20px;border-radius:3px;font-family:var(--sans);font-size:16px;font-weight:600;text-decoration:none}.ds-primary:hover{background:var(--accent)}.ds-primary:focus-visible{outline:2px solid var(--accent);outline-offset:5px}"
+      "html": "<a class=\"ds-primary\" href=\"#publications\">Explore my research</a>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;min-height:48px;background:var(--forest);color:var(--paper);padding:11px 20px;border-radius:3px;font-family:var(--sans);font-size:16px;font-weight:550;text-decoration:none}.ds-primary:hover{background:var(--accent)}.ds-primary:focus-visible{outline:2px solid var(--accent);outline-offset:5px}"
     },
     {
       "name": "Resource link", "kind": "custom",
@@ -32,15 +34,15 @@
       "name": "Author disclosure", "kind": "custom",
       "description": "Progressively disclosed complete author list",
       "html": "<details class=\"ds-authors\"><summary>All authors</summary><p>Ordered author list</p></details>",
-      "css": ".ds-authors{font-family:var(--sans);font-size:15px;color:var(--secondary)}.ds-authors summary{min-height:44px;cursor:pointer;color:var(--accent)}.ds-authors summary:hover{text-decoration:underline}.ds-authors summary:focus-visible{outline:2px solid var(--accent);outline-offset:5px}"
+      "css": ".ds-authors{font-family:var(--sans);font-size:14px;color:var(--secondary)}.ds-authors summary{display:flex;align-items:center;min-height:44px;cursor:pointer;color:var(--secondary)}.ds-authors summary:hover{color:var(--accent)}.ds-authors summary:focus-visible{outline:2px solid currentColor;outline-offset:5px}"
     }
   ],
   "narrative": {
     "northStar": "Academic Editorial Portfolio",
-    "overview": "Modern, restrained, and refined. The reading experience supports scholarly evidence rather than a commercial product pitch. Serif headings carry the editorial voice; clear body typography and compact resource links support scanning.",
-    "keyCharacteristics": ["Research before decoration.", "Generous reading space and compact metadata.", "Authentic scholarly resources and explicitly labeled schematics."],
+    "overview": "An open editorial layout with a prominent researcher name and biography, a featured AOEB publication followed by KaLM and LMEB, authentic source figures, a forest-green research band, and open engineering rows. Source Serif 4 carries the display voice while Source Sans 3 supports biographies, metadata, and links. Education includes master's studies advised by Prof. Meishan Zhang and undergraduate studies in Computer Science and Technology at HIT Shenzhen.",
+    "keyCharacteristics": ["A prominent researcher identity, followed by research evidence.", "A lead paper, paired supporting papers, and open engineering rows.", "Authentic figures with source attribution and full-size links."],
     "rules": [],
-    "dos": ["Do preserve authentic publication titles, author order, and attribution.", "Do use space and fine rules to establish content groups.", "Do maintain visible focus and 44px resource targets."],
-    "donts": ["Don't turn the page into rounded SaaS cards or introduce purple gradients.", "Don't add decorative motion, fabricated portraits, or unsupported research claims."]
+    "dos": ["Do preserve authentic publication titles, author order, and attribution.", "Do preserve complete source figures and maintain their provenance record.", "Do use space, fine rules, and section backgrounds to establish content groups.", "Do maintain visible focus and 44px resource targets."],
+    "donts": ["Don't turn the page into rounded SaaS cards or introduce purple gradients.", "Don't add decorative motion, fabricated portraits, or unsupported research claims.", "Don't infer undergraduate dates or a specific degree abbreviation."]
   }
 }

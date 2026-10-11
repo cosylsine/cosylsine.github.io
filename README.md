@@ -1,6 +1,6 @@
 # Jiaxin Xu — academic homepage
 
-A lightweight English academic portfolio for information retrieval and LLM agents. Astro generates ordinary static HTML; no backend or client framework is required. Fonts are served locally.
+A lightweight English academic portfolio for information retrieval and LLM agents. A large name-and-biography opening leads into a featured AOEB publication, two supporting papers with authentic research figures, a forest-green research section, and open engineering rows. Astro generates ordinary static HTML; no backend or client framework is required. Fonts and research images are served locally.
 
 ## Local development
 
@@ -22,12 +22,13 @@ npm run preview
 ## Maintain content
 
 - `src/data/profile.ts`: identity, emails, advisor, education, research interests, news.
-- `src/data/publications.ts`: paper metadata, complete ordered author lists, summaries, resource links.
+- `src/data/publications.ts`: paper metadata, complete ordered author lists, summaries, resource links, figure paths, alternative text, and source attribution.
 - `src/data/projects.ts`: engineering contributions and team resources.
 - `src/styles/global.css`: shared design tokens and responsive styles.
-- `src/components/ResearchFigure.astro`: original conceptual diagrams, not reproduced paper figures.
+- `src/components/Publication.astro`: featured and supporting publication layouts, figures, and author disclosures.
+- `public/images/research/`: optimized WebP figures from the papers and authors' repositories; provenance and processing details are recorded in `docs/image-sources.md`.
 
-No portrait, CV, Scholar link, undergraduate details, or unconfirmed honors are published. Add these only with authentic assets and confirmed information. Publication summaries and source links are traceable to the supplied design document and public PMLR/arXiv records.
+The confirmed profile includes Prof. Meishan Zhang as advisor and undergraduate studies in Computer Science and Technology at Harbin Institute of Technology, Shenzhen. Undergraduate dates and a specific degree abbreviation are not supplied. No portrait, CV, Scholar link, or unconfirmed honors are published; add these only with authentic assets and confirmed information. Publication summaries and source links are traceable to the supplied design document and public PMLR/arXiv records.
 
 ## GitHub Pages
 

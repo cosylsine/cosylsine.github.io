@@ -1,59 +1,56 @@
-# Visual review — 2026-10-11
-
-⚠️ DEGRADED: single-context (Impeccable critique synthesis and browser evidence were run in the main context; an independent finishing reviewer assessed the screenshots separately.)
+# Visual review — 2026-10-11 redesign
 
 ## Scope and method
 
-Target: `src/pages/index.astro`, served as production static output at http://127.0.0.1:4321/.
+The user rejected the first composition as rigid and requested a stronger layout, authentic research figures, undergraduate education at HIT Shenzhen in Computer Science and Technology, and Prof. Meishan Zhang as advisor. This review supersedes the first visual pass.
 
-The user requested two distinct frontend-design directions followed by an autonomous choice, implementation, and critique/typeset/layout/polish. The editorial reading direction was chosen over a compact research index. Both skills were installed from their upstream repositories and their references read. The Impeccable context launcher initially lacked executable permission; this was repaired. Its deterministic detector was attempted but refused to run because its downloaded binary could not be verified against the checksum sidecar. No successful Impeccable CLI scan or browser overlay is claimed.
+The installed `frontend-design` and `impeccable` skills guided the design and critique/typeset/layout/polish work. The Impeccable context launcher was attempted once for this pass, but its engine checksum sidecar was unavailable, so the unverified binary was not run. Project context and skill references were read directly. No successful CLI detector scan or overlay is claimed.
 
-The review used Chrome screenshots at 1440 × 1000 and 390 × 844, full-page captures, and targeted publication/project captures. Playwright exercised controls and axe checked WCAG A/AA rules. A separate visual reviewer inspected the captures and then scored the final corrections. No prior critique ignore list existed. The local preview remains available because the user explicitly requested it. Temporary screenshots and reports remain in ignored `artifacts/`; no detector overlay/live server was started.
+The production static build was inspected in Chrome at 1440 × 1000 and 390 × 844. An independent reviewer inspected the rendered hero, publications, projects, and full-page captures, and checked the LMEB figure in the live local preview. Playwright and axe supplied functional and accessibility evidence. Temporary captures and reports stay in ignored `artifacts/`. Local preview: http://127.0.0.1:4321/.
 
-## Critique
+## Critique and direction
 
-The page supports a coherent academic identity through a prominent research statement, readable paper titles, and direct scholarly resource links. Its scientific diagrams are explicitly labeled as original schematics. The strongest area is publication hierarchy: titles, authentic author order, venue, short summaries, and resources are kept together. Engineering resources clearly identify team collaborations.
+The first composition repeated an identity rail, uniform publication rows, and similarly sized text groups. Synthetic diagrams supplied little direct evidence. The replacement keeps the academic editorial direction while giving each content group a distinct role:
 
-The primary reading path is linear and low in cognitive load. One publication action leads the hero, with contact secondary. Each publication has three resource choices and a native disclosure for full authors. Desktop navigation has five familiar section links, avoiding an additional CV entry without an authentic file. Research terminology is appropriate to the intended academic audience.
+- A large personal name, research statement, and adjacent biography establish a more personal opening.
+- A compact news strip leads into research evidence.
+- AOEB has a larger, featured layout; KaLM and LMEB sit side by side below it on desktop.
+- Real source figures are preserved completely, credited, and linked to their full-size local versions.
+- A forest-green research section creates a clear pause between publications and engineering contributions.
+- Open contribution rows separate project identity from the work performed.
+- Education distinguishes current master's studies from confirmed undergraduate studies without inventing undergraduate dates or a degree abbreviation.
 
-The review considered a prospective collaborator scanning research evidence, a keyboard user following native navigation, and a mobile visitor seeking a paper or contact address. The missing portrait is represented by a monogram; missing credentials, awards, CV, and Scholar profile are omitted rather than fabricated.
+The independent reviewer found no release-blocking visual defect. Their optional observation was that mobile research evidence follows a relatively generous introduction and news section; the first publication figure starts around y=1163 at 390px width. A prominent research anchor remains available in the first viewport. Fine labels within dense source figures require enlargement, which the full-size image links support.
 
 ## Typeset, layout, and polish
 
-| Initial finding | Correction | Final verdict |
+| Finding | Correction | Final evidence |
 | --- | --- | --- |
-| Mobile institution and location concatenated | Use the canonical institution string, including comma and space | Resolved |
-| Desktop project links allowed a 36px target | Set all project title links to a 44px minimum | Resolved |
-| Venue labels preceded paper titles | Move venue/year beneath the title and author list | Resolved |
-| Monogram tracking compressed at -.06em | Relax tracking to -.04em | Resolved |
+| Repetitive hierarchy and rigid rows | Name-led hero, featured publication, two supporting papers, contrasting research band | Desktop and mobile captures show distinct section rhythms |
+| Diagrams were illustrative substitutes | Extract AOEB Figure 1, KaLM Figure 1(a), and LMEB Figure 1 from original public sources | Three decoded WebP assets with original proportions; provenance in `image-sources.md` |
+| Mobile advisor link split after “Prof.” | Keep the linked name in an inline block | Final mobile hero keeps the advisor name together |
+| Full-page screenshots could capture a lazy image before loading | Scroll each figure into view and await decoding before capture | Final captures contain all three figures; image dimensions asserted |
+| Sharing assets retained the first palette | Regenerate social preview and update favicon colors | Local preview image inspected |
 
-The final reviewer's `ship` disposition covers these four corrections. No regression introduced by their fix batch was visible. The overall design retained its restrained typography, fine separators, and research-first reading order.
-
-The original section screenshots were polluted by sticky navigation. Final section crops temporarily hide only the navigation/skip link during capture, preserving content geometry; the full-page and hero screenshots show the actual navigation. No temporary capture styling is shipped.
+Section-only screenshots hide sticky navigation during capture to avoid an overlay across the content. Hero and full-page screenshots retain actual navigation. Capture-only styles are not shipped.
 
 ## Verification
 
 - `npm run check`: zero errors, warnings, or hints.
-- `npm run build`: static output completes.
-- `npm run qa`: both requested viewports pass; no console errors; two local font files load.
-- axe: zero reported WCAG A/AA violations on desktop and mobile, including the open mobile menu. Automated checks do not replace screen-reader user testing.
-- No horizontal overflow at 320, 390, 480, 768, 1024, and 1440px.
-- Native mobile menu opens, closes on Escape, and closes after navigation; anchor headings clear the sticky header.
-- Author disclosure, clipboard success, clipboard denial recovery, and keyboard skip link work.
-- With JavaScript disabled, publications, contact links, and the native mobile menu remain usable.
-- All nine publication resource links have 44px minimum target height. Project title targets are also 44px.
-- Production dependency audit: zero reported vulnerabilities.
-- Mobile Lighthouse lab scores: performance 100, accessibility 100, best practices 100, SEO 100. Final report has no failed binary audits. LCP is approximately 1.5 seconds, CLS 0, and total blocking time 0 ms on the local production preview; deployed network performance may differ.
-- Lighthouse additionally identified a redundant wordmark accessibility label that omitted the visible Chinese name. Removing the override lets its complete visible text supply the accessible name. The final Lighthouse run confirmed the correction; visual layout is unchanged.
-- Public code, model, conference, advisor, and profile resources returned HTTP 200 during link verification.
-- Runtime has no client framework or external script requests. HTML is approximately 20 KB and the complete static artifact approximately 196 KB, including two self-hosted fonts and a social preview image.
+- `npm run build`: static output completes successfully.
+- `npm run qa`: desktop and mobile pass; local fonts and all three research figures load; no page errors.
+- axe: zero reported WCAG A/AA violations, including the open mobile menu. Automated scanning does not replace screen-reader user testing.
+- No horizontal overflow at 320, 390, 480, 768, 1024, and 1440px, or with root text enlarged to 200% at 390px.
+- Menu opens and closes, Escape and selection dismiss it, and anchor targets clear the sticky header.
+- Full-author disclosure, clipboard success and denial recovery, and the keyboard skip link work.
+- Publications, mailto links, and native mobile navigation remain usable with JavaScript disabled.
+- All nine publication resource links have a minimum 44px target height.
+- The corrected advisor URL and undergraduate major/institution are checked in the rendered DOM.
+- Local mobile Lighthouse lab scores: performance 100, accessibility 100, best practices 100, SEO 100. FCP approximately 0.8s, LCP 1.7s, CLS 0, total blocking time 0ms. Deployed network conditions may differ.
+- Three displayed WebP figures total approximately 264 KiB. Fonts are self-hosted; no client framework or external script is required.
 
-## Deployment state
+## Deployment
 
-Published at https://cosylsine.github.io/ from the public repository https://github.com/cosylsine/cosylsine.github.io.
+The existing GitHub Pages workflow builds and publishes `dist/` on pushes to `main` in https://github.com/cosylsine/cosylsine.github.io. Public URL: https://cosylsine.github.io/.
 
-After the user completed local GitHub authentication, the repository was created and `main` pushed. GitHub initially enabled legacy branch-based Pages automatically; the publishing source was switched to GitHub Actions so the site serves Astro's `dist/` output. The custom build and deployment workflow completed successfully: https://github.com/cosylsine/cosylsine.github.io/actions/runs/38147036293. Pages reports `build_type: workflow`, `status: built`, and HTTPS enforced.
-
-The deployed page and its stylesheet, local fonts, favicon, and social image are checked directly over HTTPS. Future site changes pushed to `main` deploy through the included workflow.
-
-The original design document is intentionally excluded from Git and the static deployment because it contains non-public context.
+The original personal design document remains excluded from Git and the deployment. Downloaded source PDFs and unused image alternatives also remain local. Only the optimized display figures and the required LMEB license are included in the public assets.

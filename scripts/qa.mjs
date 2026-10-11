@@ -21,6 +21,20 @@ try {
     assert.equal(await page.locator('.publication').count(), 3);
     assert.equal(await page.locator('.project').count(), 3);
     assert.equal(await page.locator('a[href="#"], a[href=""]').count(), 0);
+    assert.equal(await page.locator('.hero-about a[href="https://zhangmeishan.github.io/"]').textContent(), 'Prof. Meishan Zhang');
+    assert.ok((await page.locator('.education-entry').last().textContent()).includes('Computer Science and Technology'));
+    assert.ok((await page.locator('.education-entry').last().textContent()).includes('Harbin Institute of Technology, Shenzhen'));
+    // Native lazy loading needs viewport entry before a full-page capture.
+    const figures = page.locator('.research-figure img');
+    assert.equal(await figures.count(), 3);
+    for (const figure of await figures.all()) {
+      await figure.scrollIntoViewIfNeeded();
+      await figure.evaluate(async image => {
+        await image.decode();
+        if (!image.naturalWidth) throw new Error(`Missing research figure: ${image.src}`);
+      });
+    }
+    await page.evaluate(() => window.scrollTo(0, 0));
     const metrics = await page.evaluate(() => ({
       viewport: window.innerWidth,
       documentWidth: document.documentElement.scrollWidth,
@@ -28,6 +42,7 @@ try {
       fontLoaded: document.fonts.check('18px "Source Sans 3 Variable"') && document.fonts.check('24px "Source Serif 4 Variable"'),
       bodyFontSize: getComputedStyle(document.body).fontSize,
       heroFontSize: getComputedStyle(document.querySelector('h1')).fontSize,
+      researchFigures: [...document.querySelectorAll('.research-figure img')].map(image => ({ src: image.getAttribute('src'), width: image.naturalWidth, height: image.naturalHeight })),
       resourceTargets: [...document.querySelectorAll('.resource-links a')].map(el => Math.round(el.getBoundingClientRect().height)),
     }));
     assert.ok(metrics.documentWidth <= width, `${name}: horizontal overflow`);

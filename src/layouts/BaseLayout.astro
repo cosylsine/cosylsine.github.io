@@ -10,6 +10,7 @@ const person = {
   alternateName: profile.chineseName, url: profile.site, sameAs: [profile.github],
   jobTitle: profile.role,
   affiliation: { '@type': 'CollegeOrUniversity', name: profile.institution },
+  alumniOf: { '@type': 'CollegeOrUniversity', name: profile.institution },
   knowsAbout: ['Information Retrieval', 'Reranking', 'LLM Agents', 'Memory Retrieval'],
 };
 ---
@@ -18,7 +19,7 @@ const person = {
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="theme-color" content="#fafaf7"/>
+    <meta name="theme-color" content="#f8f9f5"/>
     <link rel="preload" href={sansFont} as="font" type="font/woff2" crossorigin/>
     <link rel="preload" href={serifFont} as="font" type="font/woff2" crossorigin/>
     <title>{title}</title>

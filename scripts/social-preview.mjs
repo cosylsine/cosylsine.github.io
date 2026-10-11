@@ -9,12 +9,12 @@ try {
   await page.setContent(`<style>
     @font-face { font-family: Sans; src: url(data:font/woff2;base64,${sans.toString('base64')}); font-weight: 200 900; }
     @font-face { font-family: Serif; src: url(data:font/woff2;base64,${serif.toString('base64')}); font-weight: 200 900; }
-    * { box-sizing: border-box; } body { margin: 0; background: #fafaf7; color: #24394b; padding: 64px 80px; font-family: Sans; }
-    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #d9dfe0; padding-bottom: 30px; font-size: 27px; }
-    header span { font-size: 21px; color: #526371; }
-    h1 { font-family: Serif; font-weight: 400; font-size: 74px; letter-spacing: -.025em; line-height: 1.15; margin: 62px 0 34px; }
-    p { font-size: 25px; color: #526371; margin: 0; } footer { margin-top: 52px; font-size: 21px; color: #275e7c; }
-    </style><header>Jiaxin Xu<span>Master’s student · HIT Shenzhen</span></header><h1>Information retrieval<br>for LLM agents.</h1><p>Efficient reranking. Agent-oriented evaluation. Long-horizon memory.</p><footer>cosylsine.github.io</footer>`);
+    * { box-sizing: border-box; } body { margin: 0; background: #f8f9f5; color: #233b32; padding: 64px 80px; font-family: Sans; }
+    header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; font-size: 27px; }
+    header span { font-size: 21px; color: #59675e; }
+    h1 { font-family: Serif; font-weight: 400; font-size: 90px; letter-spacing: -.025em; line-height: 1.15; margin: 44px 0 26px; }
+    p { font-family: Serif; font-size: 44px; line-height: 1.25; color: #59675e; margin: 0; } footer { margin-top: 38px; font-size: 21px; color: #35624c; }
+    </style><header>Master’s student · HIT Shenzhen<span>Research & open source</span></header><h1>Jiaxin Xu</h1><p>Information retrieval<br>for LLM agents.</p><footer>cosylsine.github.io</footer>`);
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: 'public/social-preview.png' });
   console.log('Created public/social-preview.png (1200 × 630).');
