@@ -30,25 +30,8 @@ try {
       if (!image.naturalWidth) throw new Error('Profile image did not load');
     });
 
-    if (name === 'desktop') {
-      for (const figure of await page.locator('.paper-thumbnail img').all()) {
-        await figure.scrollIntoViewIfNeeded();
-        await figure.evaluate(async image => {
-          await image.decode();
-          if (!image.naturalWidth) throw new Error(`Missing figure: ${image.src}`);
-        });
-      }
-    } else {
-      // Small screens keep the paper title first; every source figure remains one link away.
-      assert.equal(await page.locator('.paper-thumbnail:visible').count(), 0);
-      assert.equal(await page.locator('.mobile-figure a:visible').count(), 3);
-      for (const link of await page.locator('.mobile-figure a').all()) {
-        const url = await link.getAttribute('href');
-        const imageResponse = await context.request.get(new URL(url, baseURL).href);
-        assert.equal(imageResponse.status(), 200, `Figure unavailable: ${url}`);
-        assert.ok(imageResponse.headers()['content-type'].includes('image/webp'));
-      }
-    }
+    assert.equal(await page.locator('.publication img').count(), 0);
+    assert.equal(await page.locator('.publication .resource-links a:visible').count(), 9);
     await page.evaluate(() => window.scrollTo(0, 0));
     const metrics = await page.evaluate(() => ({
       viewport: window.innerWidth,
@@ -96,7 +79,7 @@ try {
   await staticPage.goto(baseURL);
   assert.equal(await staticPage.locator('.publication').count(), 3);
   assert.equal(await staticPage.locator('a[href^="mailto:"]').count(), 2);
-  assert.equal(await staticPage.locator('.mobile-figure a:visible').count(), 3);
+  assert.equal(await staticPage.locator('.publication .resource-links a:visible').count(), 9);
   await noScript.close();
   const result = { captures, reflow, noJavaScript: 'passed' };
   await writeFile('artifacts/qa-report.json', JSON.stringify(result, null, 2));

@@ -63,7 +63,7 @@ There is no navigation bar, hero slogan, call-to-action button, news feed, separ
 
 ## Color and type
 
-A white page (#ffffff), dark gray text (#292929), secondary text (#626262), and blue links (#185d9c, #0c3d6b on hover). Color comes from the supplied profile image and original research figures. No colored section backgrounds, shadows, cards, or gradients.
+A white page (#ffffff), dark gray text (#292929), secondary text (#626262), and blue links (#185d9c, #0c3d6b on hover). Color comes from the supplied profile image. No colored section backgrounds, shadows, cards, or gradients.
 
 Source Sans 3 is the sole web font, served locally as one Latin variable WOFF2 with `font-display: swap`; Chinese names use platform fallback. Body text is 17px with 1.6 line height. The desktop name is 36px, section headings 24px, paper titles 17px, author and venue metadata 15px, and the footer 13px. Titles use weight 600. Jiaxin Xu is emphasized within each full author list. On mobile the name is 32px, the Chinese name 18px, and section headings 22px.
 
@@ -73,17 +73,16 @@ The page is centered at a maximum width of 800px, with 24px side margins on narr
 
 The profile image sits to the right of the biography on desktop at 160px wide, separated by 36px, and beside the name on mobile at 96px wide. Preserve its original aspect ratio and use the locally served 480 × 584 WebP (30,298 bytes). It is a personal avatar selected by the owner, not a verified portrait; alternative text must remain neutral.
 
-Each desktop publication is a row: a 176px thumbnail, a 30px gap, then paper information. Source figures are contained within a 128px image height without cropping. All three papers use the same title size and layout. Publication rows are separated by 32px of whitespace, with no borders or card surfaces.
+Each publication is a text-only entry spanning the reading column. Titles, authors, venues, descriptions, and resource links align with the section heading's left edge. All three papers use the same title size and layout. Entries are separated by 32px of whitespace, with no borders or card surfaces. Research thumbnails and Figure links were removed at the owner's request on 2026-10-13 because the differing image proportions, especially the very wide KaLM architecture, disrupted the layout.
 
-At 600px and below, the publication list becomes text-first: thumbnails are hidden and each paper gains a “Figure” link to its full-size local image. Rows are separated by 25px. Contact and resource links wrap naturally. The mobile layout maintains the same content order as desktop.
+At 600px and below, publication entries are separated by 25px. Contact and resource links wrap naturally. The mobile layout maintains the same text-only structure and content order as desktop.
 
 ## Components and behavior
 
 - **Profile:** a single name heading, the supplied avatar, two short paragraphs, and a wrapping contact list.
 - **Education:** one shared school heading and two compact degree rows: master's in Computer Technology, Sep 2025 – Present; undergraduate studies in Computer Science and Technology, Sep 2021 – Jul 2025. Keep the same quiet typography and unboxed layout as the rest of the page.
 - **Honors:** follows Education and lists National Scholarship with the year 2026. Match Education's plain typography, section spacing, and responsive row layout.
-- **Publication:** linked title, full authors in their original order, venue/year, a one-sentence description, and all three existing resource links. AOEB uses Paper, Code, and Conference; KaLM-Reranker-V1 uses Paper, Models, and Nano model; LMEB uses Paper, Code, and Project. Keep resource choices in the data file.
-- **Figure:** an uncropped, source-derived desktop thumbnail linked to the original local asset; a plain Figure link on mobile. Alternative text describes the actual figure. Source records remain in `docs/image-sources.md`.
+- **Publication:** a text-only entry with linked title, full authors in their original order, venue/year, a one-sentence description, and all three existing resource links. AOEB uses Paper, Code, and Conference; KaLM-Reranker-V1 uses Paper, Models, and Nano model; LMEB uses Paper, Code, and Project. Keep resource choices in the data file. Readers can find figures in the linked papers.
 - **Links:** blue text with an underline on hover and a 2px visible focus outline offset by 4px. Contact and resource links have 44px minimum target height.
 - **Accessibility:** semantic document structure, a keyboard skip link, responsive reflow, and no reliance on JavaScript. There are no menus, copy controls, disclosures, animation, or loading states.
 - **Print:** full-width page content with publication rows kept together where possible.

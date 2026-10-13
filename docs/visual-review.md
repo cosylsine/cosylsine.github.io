@@ -1,5 +1,9 @@
 # Academic homepage review
 
+On 2026-10-13, the owner requested removal of the research illustrations after finding their proportions unbalanced, particularly the wide KaLM architecture. Publications now share a full-width text layout on desktop and mobile, with aligned titles, authors, venues, descriptions, and the nine existing resource links. The profile image remains. Research assets and their license record are archived locally outside the deployed output.
+
+This revision passes Astro check/build and browser QA: desktop and mobile screenshots were inspected, axe reports zero violations, and there is no horizontal overflow at the checked widths from 320 to 1440px. The nine publication resource links remain visible with JavaScript disabled. Current full-page heights are 1463px on desktop and 1871px on mobile.
+
 The review below records the enrichment revision. The Open source section was subsequently removed at the owner's request on 2026-10-12; its dedicated CSS was also removed. The profile, Publications, Education, and existing paper resource links remain. The earlier full-page heights below include the now-removed section.
 
 ## Direction and evidence

@@ -1,8 +1,8 @@
 # Jiaxin Xu — academic homepage
 
-A small English personal academic homepage: an owner-selected profile image, two biography paragraphs, contact links, three publications, and compact Education and Honors sections. It follows the readable personal-page structure of [Jon Barron](https://jonbarron.info/) and [Andrej Karpathy](https://karpathy.ai/), with fuller scholarly records informed by [Xin Zhang's homepage](https://izhx.github.io/). The page uses a white background, dark text, blue links, and equal-weight paper entries. Real paper figures appear as small desktop thumbnails and remain accessible through Figure links on mobile.
+A small English personal academic homepage: an owner-selected profile image, two biography paragraphs, contact links, three publications, and compact Education and Honors sections. It follows the readable personal-page structure of [Jon Barron](https://jonbarron.info/) and [Andrej Karpathy](https://karpathy.ai/), with fuller scholarly records informed by [Xin Zhang's homepage](https://izhx.github.io/). The page uses a white background, dark text, blue links, and equally weighted, text-only paper entries.
 
-Astro generates static HTML and CSS with no runtime JavaScript, backend, or client framework. One font, the profile image, and all research figures are served locally. The live site is https://cosylsine.github.io/.
+Astro generates static HTML and CSS with no runtime JavaScript, backend, or client framework. One font and the profile image are served locally. The live site is https://cosylsine.github.io/.
 
 ## Local development
 
@@ -25,11 +25,11 @@ npm run preview
 
 - `src/pages/index.astro`: biography, contact list, Education, Honors, and page structure.
 - `src/data/profile.ts`: identity, emails, advisor, education dates, and honors.
-- `src/data/publications.ts`: paper metadata, complete ordered author lists, descriptions, resource links, figure paths, alternative text, and source attribution. The page shows full authors, one-sentence descriptions, and all existing resource links, including LMEB's Project link.
-- `src/components/Publication.astro`: the shared compact publication row and mobile Figure link.
+- `src/data/publications.ts`: paper metadata, complete ordered author lists, descriptions, and resource links. The page shows full authors, one-sentence descriptions, and all existing resource links, including LMEB's Project link.
+- `src/components/Publication.astro`: the shared text-only publication entry.
 - `src/styles/global.css`: typography, colors, the 800px page width, and responsive styles.
 - `public/images/profile.webp`: the owner-selected avatar, optimized at 480px wide while preserving its original aspect ratio.
-- `public/images/research/`: optimized WebP figures from papers and authors' repositories; provenance and processing details are recorded in `docs/image-sources.md`.
+- `docs/image-sources.md`: profile-image provenance and historical research-figure sources. Research figures were removed from the homepage on 2026-10-13 at the owner's request; local copies remain in ignored `artifacts/source-assets/retired-research-figures/`.
 
 The confirmed profile includes master's studies in Computer Technology, Sep 2025 – Present, with Prof. Meishan Zhang as advisor, and undergraduate studies in Computer Science and Technology, Sep 2021 – Jul 2025. Both degrees appear under one Harbin Institute of Technology, Shenzhen heading in Education after Publications. Honors follows Education and lists the owner-confirmed 2026 National Scholarship. A specific degree abbreviation is not supplied. The profile image is an owner-selected avatar; do not claim it is an actual portrait. No CV, Scholar link, or unconfirmed honors are published. Publication records and source links are traceable to the supplied design document and public PMLR/arXiv records.
 
