@@ -1,0 +1,32 @@
+<div class="language-switch" role="group" aria-label="Language / 语言" hidden>
+  <button type="button" lang="en" data-language-choice="en" aria-label="English" aria-pressed="true">EN</button>
+  <span aria-hidden="true">/</span>
+  <button type="button" lang="zh-CN" data-language-choice="zh-CN" aria-pressed="false">中文</button>
+</div>
+
+<script>
+  const switcher = document.querySelector<HTMLElement>('.language-switch');
+  const buttons = switcher?.querySelectorAll<HTMLButtonElement>('button');
+
+  function setLanguage(language: string) {
+    document.documentElement.lang = language;
+    buttons?.forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.languageChoice === language));
+    });
+  }
+
+  setLanguage(document.documentElement.lang);
+  buttons?.forEach(button => {
+    button.addEventListener('click', () => {
+      const language = button.dataset.languageChoice;
+      if (language !== 'en' && language !== 'zh-CN') return;
+      setLanguage(language);
+      try {
+        localStorage.setItem('homepage-language', language);
+      } catch {
+        // Switching still works when browser storage is unavailable.
+      }
+    });
+  });
+  if (switcher) switcher.hidden = false;
+</script>

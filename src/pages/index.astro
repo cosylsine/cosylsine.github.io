@@ -1,43 +1,48 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Publication from '../components/Publication.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import LocalizedText from '../components/LocalizedText.astro';
 import { profile } from '../data/profile';
 import { publications } from '../data/publications';
 ---
 <BaseLayout>
   <main id="main" class="page">
     <header class="profile" aria-labelledby="name-heading">
-      <h1 id="name-heading">{profile.name}<span lang="zh-CN">{profile.chineseName}</span></h1>
-      <img class="profile-image" src="/images/profile.webp" alt="Jiaxin Xu’s chosen profile image" width="480" height="584" decoding="async" fetchpriority="high"/>
-      <div class="bio">
-        <p>I’m a master’s student in {profile.degree} at {profile.institution}, advised by <a href={profile.advisor.url}>{profile.advisor.name}</a>.</p>
-        <p>My research focuses on information retrieval for LLM agents, particularly efficient reranking, agent-oriented evaluation, and long-horizon memory retrieval.</p>
+      <div class="profile-heading">
+        <h1 id="name-heading" lang="en">{profile.name}<span lang="zh-CN">{profile.chineseName}</span></h1>
+        <LanguageSwitcher/>
       </div>
-      <ul class="contact-links" aria-label="Contact and profiles">
+      <img class="profile-image" lang="en" src="/images/profile.webp" alt="Jiaxin Xu’s chosen profile image" width="480" height="584" decoding="async" fetchpriority="high"/>
+      <div class="bio">
+        <p><LocalizedText en={`I’m a master’s student in ${profile.degree} at ${profile.institution}, advised by `} zh="我目前在哈尔滨工业大学（深圳）攻读计算机技术硕士学位，导师是"/><a href={profile.advisor.url}><LocalizedText en={profile.advisor.name} zh="张梅山教授"/></a><LocalizedText en="." zh="。"/></p>
+        <p><LocalizedText en="My research focuses on information retrieval for LLM agents, particularly efficient reranking, agent-oriented evaluation, and long-horizon memory retrieval." zh="我的研究聚焦于面向大语言模型智能体的信息检索，尤其是高效重排序、面向智能体的评测，以及长程记忆检索。"/></p>
+      </div>
+      <ul class="contact-links" lang="en" aria-label="Contact and profiles">
         <li><a href={`mailto:${profile.emails[0]}`}>{profile.emails[0]}</a></li>
-        <li><a href={`mailto:${profile.emails[1]}`} aria-label={`Email ${profile.emails[1]}`}>Email (163)</a></li>
+        <li><a href={`mailto:${profile.emails[1]}`} aria-label={`Email ${profile.emails[1]}`}><LocalizedText en="Email (163)" zh="邮箱（163）"/></a></li>
         <li><a href={profile.github}>GitHub</a></li>
       </ul>
     </header>
 
     <section id="publications" aria-labelledby="publications-heading">
-      <h2 id="publications-heading">Publications</h2>
-      <div class="publication-list">{publications.map(paper => <Publication paper={paper}/>)}</div>
+      <h2 id="publications-heading"><LocalizedText en="Publications" zh="论文发表"/></h2>
+      <div class="publication-list" lang="en">{publications.map(paper => <Publication paper={paper}/>)}</div>
     </section>
     <section class="education" aria-labelledby="education-heading">
-      <h2 id="education-heading">Education</h2>
-      <p class="education-school">{profile.institution}</p>
+      <h2 id="education-heading"><LocalizedText en="Education" zh="教育经历"/></h2>
+      <p class="education-school"><LocalizedText en={profile.institution} zh="哈尔滨工业大学（深圳）"/></p>
       <ul class="education-list">
-        <li><span>Master’s studies in {profile.degree}</span><span class="education-date">{profile.educationDates}</span></li>
-        <li><span>Undergraduate studies in {profile.undergraduateMajor}</span><span class="education-date">{profile.undergraduateDates}</span></li>
+        <li><span><LocalizedText en={`Master’s studies in ${profile.degree}`} zh="计算机技术 · 硕士研究生"/></span><span class="education-date"><LocalizedText en={profile.educationDates} zh="2025年9月 – 至今"/></span></li>
+        <li><span><LocalizedText en={`Undergraduate studies in ${profile.undergraduateMajor}`} zh="计算机科学与技术 · 本科"/></span><span class="education-date"><LocalizedText en={profile.undergraduateDates} zh="2021年9月 – 2025年7月"/></span></li>
       </ul>
     </section>
     <section id="honors" class="honors" aria-labelledby="honors-heading">
-      <h2 id="honors-heading">Honors</h2>
+      <h2 id="honors-heading"><LocalizedText en="Honors" zh="荣誉奖励"/></h2>
       <ul class="honors-list">
-        {profile.honors.map(honor => <li><span>{honor.title}</span><span class="honor-year">{honor.year}</span></li>)}
+        {profile.honors.map(honor => <li><span><LocalizedText en={honor.title} zh={honor.titleZh}/></span><span class="honor-year">{honor.year}</span></li>)}
       </ul>
     </section>
-    <footer class="site-footer"><p>© {new Date().getFullYear()} {profile.name}</p></footer>
+    <footer class="site-footer" lang="en"><p>© {new Date().getFullYear()} {profile.name}</p></footer>
   </main>
 </BaseLayout>

@@ -65,7 +65,7 @@ There is no navigation bar, hero slogan, call-to-action button, news feed, separ
 
 A white page (#ffffff), dark gray text (#292929), secondary text (#626262), and blue links (#185d9c, #0c3d6b on hover). Color comes from the supplied profile image. No colored section backgrounds, shadows, cards, or gradients.
 
-Source Sans 3 is the sole web font, served locally as one Latin variable WOFF2 with `font-display: swap`; Chinese names use platform fallback. Body text is 17px with 1.6 line height. The desktop name is 36px, section headings 24px, paper titles 17px, author and venue metadata 15px, and the footer 13px. Titles use weight 600. Jiaxin Xu is emphasized within each full author list. On mobile the name is 32px, the Chinese name 18px, and section headings 22px.
+Source Sans 3 is the sole web font, served locally as one Latin variable WOFF2 with `font-display: swap`; Chinese text uses PingFang SC, Microsoft YaHei, or the platform sans-serif fallback. Body text is 17px with 1.6 line height. The desktop name is 36px, section headings 24px, paper titles 17px, author and venue metadata 15px, and the footer 13px. Titles use weight 600. Jiaxin Xu is emphasized within each full author list. On mobile the name is 32px, the Chinese name 18px, and section headings 22px.
 
 ## Layout
 
@@ -80,12 +80,13 @@ At 600px and below, publication entries are separated by 25px. Contact and resou
 ## Components and behavior
 
 - **Profile:** a single name heading, the supplied avatar, two short paragraphs, and a wrapping contact list.
+- **Language:** quiet EN / 中文 text buttons beside the name, wrapping below it on narrow screens. Each button has a 44px minimum target and visible keyboard focus. Underline, weight, and `aria-pressed` identify the current language. English is the initial default; the preference is saved locally and restored before rendering. Headings, biography, education, honors, secondary email label, and the skip link switch languages. Paper titles, authors, venues, descriptions, and resource labels remain English. The name remains bilingual. Language switching works even when browser storage is blocked.
 - **Education:** one shared school heading and two compact degree rows: master's in Computer Technology, Sep 2025 – Present; undergraduate studies in Computer Science and Technology, Sep 2021 – Jul 2025. Keep the same quiet typography and unboxed layout as the rest of the page.
 - **Honors:** follows Education and lists National Scholarship with the year 2026. Match Education's plain typography, section spacing, and responsive row layout.
 - **Publication:** a text-only entry with linked title, full authors in their original order, venue/year, a one-sentence description, and all three existing resource links. AOEB uses Paper, Code, and Conference; KaLM-Reranker-V1 uses Paper, Models, and Nano model; LMEB uses Paper, Code, and Project. Keep resource choices in the data file. Readers can find figures in the linked papers.
 - **Links:** blue text with an underline on hover and a 2px visible focus outline offset by 4px. Contact and resource links have 44px minimum target height.
-- **Accessibility:** semantic document structure, a keyboard skip link, responsive reflow, and no reliance on JavaScript. There are no menus, copy controls, disclosures, animation, or loading states.
-- **Print:** full-width page content with publication rows kept together where possible.
+- **Accessibility:** semantic document structure, a keyboard skip link, and responsive reflow. Document language tracks the selection; English publication content and translated spans carry explicit language tags. All English content remains available without JavaScript, with the language buttons hidden. There are no menus, copy controls, disclosures, animation, or loading states.
+- **Print:** full-width page content in the selected language with publication rows kept together where possible; language controls are hidden.
 
 ## Content safeguards
 

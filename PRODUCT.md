@@ -6,7 +6,7 @@
 web
 
 ## Stack
-Astro, TypeScript, native CSS, static output. GitHub Pages at https://cosylsine.github.io/ is the user's requested deployment target. The homepage requires no client-side JavaScript.
+Astro, TypeScript, native CSS, static output. GitHub Pages at https://cosylsine.github.io/ is the user's requested deployment target. A small client-side script supports language selection; all content remains readable in English without JavaScript.
 
 ## Users
 Researchers, potential collaborators, advisors, and recruiters who want to identify Jiaxin Xu, understand his research interests, read his papers, and find a contact address.
@@ -15,7 +15,7 @@ Researchers, potential collaborators, advisors, and recruiters who want to ident
 Provide a concise personal academic homepage: who Jiaxin Xu is, what he studies, and where to find his publications and public resources.
 
 ## Capabilities and Constraints
-One English page with an owner-selected profile image, a short biography, direct email and GitHub links, three equally weighted publication entries, and compact Education and Honors sections. Papers include full ordered authors, one-sentence descriptions, and useful resource links. Both degrees share one Harbin Institute of Technology, Shenzhen heading. Honors lists the owner's 2026 National Scholarship. Publications use the same text-only layout on desktop and mobile. The owner requested removal of research illustrations on 2026-10-13 because their varying aspect ratios made the thumbnail layout unbalanced. Lightweight static deployment with no backend, navigation menu, or interactive application controls. Do not disclose unpublished research details.
+One page with an owner-selected profile image, a short biography, direct email and GitHub links, three equally weighted publication entries, and compact Education and Honors sections. The owner requested an English/Chinese switch on 2026-10-14 for headings and general profile information, while keeping detailed paper content in English. English is the default and the selected language is remembered locally. Papers include full ordered authors, one-sentence descriptions, and useful resource links. Both degrees share one Harbin Institute of Technology, Shenzhen heading. Honors lists the owner's 2026 National Scholarship. Publications use the same text-only layout on desktop and mobile. The owner requested removal of research illustrations on 2026-10-13 because their varying aspect ratios made the thumbnail layout unbalanced. Lightweight static deployment with no backend or navigation menu. Language selection is the only interactive control. Do not disclose unpublished research details.
 
 ## Brand Commitments
 A quiet academic personal homepage, following the readable document structure of https://jonbarron.info/ and https://karpathy.ai/. https://izhx.github.io/ informs the complete scholarly records. The user rejected the previous editorial portfolio as too flashy, repetitive, and product-like, then asked for more substance within the simpler design. Use a white page, ordinary reading typography, dark text, and blue links. Personal identity and papers should be immediately understandable without promotional slogans or calls to action.

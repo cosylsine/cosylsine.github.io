@@ -2,6 +2,7 @@
 import sansFont from '@fontsource-variable/source-sans-3/files/source-sans-3-latin-wght-normal.woff2?url';
 import '../styles/global.css';
 import { profile } from '../data/profile';
+import LocalizedText from '../components/LocalizedText.astro';
 const title = 'Jiaxin Xu | Information Retrieval & LLM Agents';
 const description = 'Jiaxin Xu is a master’s student at HIT Shenzhen researching information retrieval for LLM agents, efficient reranking, and long-horizon memory retrieval.';
 const person = {
@@ -19,6 +20,16 @@ const person = {
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#ffffff"/>
+    <script is:inline>
+      // Restore the language before rendering, without hiding the page or requiring JavaScript to read it.
+      try {
+        if (localStorage.getItem('homepage-language') === 'zh-CN') {
+          document.documentElement.lang = 'zh-CN';
+        }
+      } catch {
+        // Keep the static English default when storage is unavailable.
+      }
+    </script>
     <link rel="preload" href={sansFont} as="font" type="font/woff2" crossorigin/>
     <title>{title}</title>
     <meta name="description" content={description}/>
@@ -39,7 +50,7 @@ const person = {
     <script type="application/ld+json" set:html={JSON.stringify(person)}/>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main"><LocalizedText en="Skip to content" zh="跳转到正文"/></a>
     <slot/>
   </body>
 </html>

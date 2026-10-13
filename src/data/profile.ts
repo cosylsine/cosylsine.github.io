@@ -7,7 +7,7 @@ export const profile = {
   educationDates: 'Sep 2025 – Present',
   undergraduateMajor: 'Computer Science and Technology',
   undergraduateDates: 'Sep 2021 – Jul 2025',
-  honors: [{ title: 'National Scholarship', year: 2026 }],
+  honors: [{ title: 'National Scholarship', titleZh: '国家奖学金', year: 2026 }],
   advisor: { name: 'Prof. Meishan Zhang', url: 'https://zhangmeishan.github.io/' },
   emails: ['jiaxinxu1357@gmail.com', 'cosy021224xjx@163.com'],
   github: 'https://github.com/cosylsine',

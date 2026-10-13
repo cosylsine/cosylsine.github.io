@@ -1,5 +1,15 @@
 # Academic homepage review
 
+## English/Chinese language switch — 2026-10-14
+
+The owner requested bilingual section headings and general profile information while retaining English paper details. Compact EN / 中文 buttons now sit beside the name on desktop and below it on mobile. They translate the section headings, biography, education, honors, secondary email label, and skip link. Paper titles, authors, venues, descriptions, and all resource links stay English. The chosen language persists locally and is restored before rendering. When storage is unavailable, switching still works; without JavaScript, the complete English page remains readable and the controls are hidden.
+
+Astro check reports zero errors, warnings, or hints, and the static build passes. Chrome screenshots were reviewed at 1440 × 1000 and 390 × 844 in both languages. The compact header retains the original page spacing: the first paper starts at y=423 on desktop in either language and y=517 / 462 on mobile in English / Chinese. Full-page heights are 1463px on desktop and 1871px / 1791px on mobile. The new control fits the existing plain academic layout, and the Chinese text and education dates wrap without overlap.
+
+Browser QA reports zero axe WCAG A/AA violations in all four desktop/mobile language combinations, no horizontal overflow across checked widths from 320 to 1440px or at 200% root text size, and 44px minimum targets for contact links, paper resources, and language buttons. Keyboard activation, English/Chinese persistence after reload, blocked storage, invalid preferences, and the no-JavaScript fallback pass. Paper markup and all link destinations are unchanged across language switches. Current screenshots and the QA report remain in ignored `artifacts/`.
+
+The Impeccable context launcher again could not verify its engine download; the existing project context and skill references were read directly. No CLI detector run is claimed. The following sections record earlier revisions.
+
 On 2026-10-13, the owner requested removal of the research illustrations after finding their proportions unbalanced, particularly the wide KaLM architecture. Publications now share a full-width text layout on desktop and mobile, with aligned titles, authors, venues, descriptions, and the nine existing resource links. The profile image remains. Research assets and their license record are archived locally outside the deployed output.
 
 This revision passes Astro check/build and browser QA: desktop and mobile screenshots were inspected, axe reports zero violations, and there is no horizontal overflow at the checked widths from 320 to 1440px. The nine publication resource links remain visible with JavaScript disabled. Current full-page heights are 1463px on desktop and 1871px on mobile.
