@@ -31,8 +31,8 @@ export const publications: Publication[] = [
     authors: ['Xinping Zhao', 'Jiaxin Xu', 'Ziqi Dai', 'Xin Zhang', 'Huiyao Chen', 'Shouzheng Huang', 'Xianhao Xiong', 'Danyu Tang', 'Xinshuo Hu', 'Guohong Fu', 'Meishan Zhang', 'Baotian Hu'],
     venue: 'Preprint', year: 2026,
     description: 'An efficient reranker that separates offline passage encoding from online query processing while retaining expressive cross-attention.',
-    figureCaption: 'BEIR performance and online computation cost',
-    image: { src: '/images/research/kalm-beir.webp', alt: 'BEIR comparison from the paper: KaLM-Reranker-V1 models balance average retrieval score with relative online computation cost.', width: 1200, height: 998, source: 'https://arxiv.org/abs/2606.22807' },
+    figureCaption: 'KaLM-Reranker-V1 model architecture',
+    image: { src: '/images/research/kalm-architecture.webp', alt: 'KaLM-Reranker-V1 model architecture: the encoder produces compressed document representations, and the decoder uses cross-attention to score their relevance to a query.', width: 1200, height: 232, source: 'https://arxiv.org/html/2606.22807v1#S3.F2' },
     links: [
       { label: 'Paper', url: 'https://arxiv.org/abs/2606.22807' },
       { label: 'Models', url: 'https://huggingface.co/collections/KaLM-Embedding/lychee-kalm-reranker-and-jev' },

@@ -1,6 +1,6 @@
 ---
 name: Jiaxin Xu Academic Homepage
-description: A concise personal academic page with a profile image, biography, publications, and education.
+description: A concise personal academic page with a profile image, biography, publications, education, and honors.
 colors:
   paper: "#ffffff"
   ink: "#292929"
@@ -56,7 +56,8 @@ The references are [Jon Barron's homepage](https://jonbarron.info/), [Andrej Kar
 3. Direct contact links: primary email address, secondary email labeled “Email (163),” and GitHub.
 4. Publications: AOEB, KaLM-Reranker-V1, and LMEB with equal visual weight, complete authors, and a brief research description.
 5. Education: one Harbin Institute of Technology, Shenzhen heading with master's and undergraduate rows.
-6. A small copyright line.
+6. Honors: the owner-confirmed 2026 National Scholarship.
+7. A small copyright line.
 
 There is no navigation bar, hero slogan, call-to-action button, news feed, separate research band, project list, or contact panel. Those sections previously repeated facts already present in the biography and papers. The compact Education section follows Publications, and its undergraduate details replace the former biography sentence. Paper and code/model resources remain alongside the corresponding publication.
 
@@ -79,7 +80,8 @@ At 600px and below, the publication list becomes text-first: thumbnails are hidd
 ## Components and behavior
 
 - **Profile:** a single name heading, the supplied avatar, two short paragraphs, and a wrapping contact list.
-- **Education:** one shared school heading and two compact degree rows: master's in Computer Technology, Sep 2025 – Present; undergraduate studies in Computer Science and Technology, Started 2021. Keep the same quiet typography and unboxed layout as the rest of the page.
+- **Education:** one shared school heading and two compact degree rows: master's in Computer Technology, Sep 2025 – Present; undergraduate studies in Computer Science and Technology, Sep 2021 – Jul 2025. Keep the same quiet typography and unboxed layout as the rest of the page.
+- **Honors:** follows Education and lists National Scholarship with the year 2026. Match Education's plain typography, section spacing, and responsive row layout.
 - **Publication:** linked title, full authors in their original order, venue/year, a one-sentence description, and all three existing resource links. AOEB uses Paper, Code, and Conference; KaLM-Reranker-V1 uses Paper, Models, and Nano model; LMEB uses Paper, Code, and Project. Keep resource choices in the data file.
 - **Figure:** an uncropped, source-derived desktop thumbnail linked to the original local asset; a plain Figure link on mobile. Alternative text describes the actual figure. Source records remain in `docs/image-sources.md`.
 - **Links:** blue text with an underline on hover and a 2px visible focus outline offset by 4px. Contact and resource links have 44px minimum target height.
@@ -88,6 +90,6 @@ At 600px and below, the publication list becomes text-first: thumbnails are hidd
 
 ## Content safeguards
 
-Preserve real paper titles, author ordering, venues, and resource URLs. The advisor is Prof. Meishan Zhang. Both degrees are at HIT Shenzhen: master's in Computer Technology, Sep 2025 – Present, and undergraduate studies in Computer Science and Technology, Started 2021. Do not infer an undergraduate graduation year or a specific degree abbreviation. Keep the source-figure provenance record. The user supplied the profile image but has no additional experience or award material; do not invent it or add empty sections. Add a CV, Scholar profile, or honors only when authentic information is available.
+Preserve real paper titles, author ordering, venues, and resource URLs. The advisor is Prof. Meishan Zhang. Both degrees are at HIT Shenzhen: master's in Computer Technology, Sep 2025 – Present, and undergraduate studies in Computer Science and Technology, Sep 2021 – Jul 2025. The user confirmed the education dates and 2026 National Scholarship. Do not infer a specific degree abbreviation or additional awards. Keep the source-figure provenance record. The user supplied the profile image; do not invent additional experience or add empty sections. Add a CV, Scholar profile, or further honors only when authentic information is available.
 
 Do not reintroduce repeated research descriptions, decorative slogans, featured-paper marketing layouts, full-width color bands, or product-style calls to action. New information should earn its place by helping a reader understand the person or their work.

@@ -29,7 +29,13 @@ import { publications } from '../data/publications';
       <p class="education-school">{profile.institution}</p>
       <ul class="education-list">
         <li><span>Master’s studies in {profile.degree}</span><span class="education-date">{profile.educationDates}</span></li>
-        <li><span>Undergraduate studies in {profile.undergraduateMajor}</span><span class="education-date">Started {profile.undergraduateStartYear}</span></li>
+        <li><span>Undergraduate studies in {profile.undergraduateMajor}</span><span class="education-date">{profile.undergraduateDates}</span></li>
+      </ul>
+    </section>
+    <section id="honors" class="honors" aria-labelledby="honors-heading">
+      <h2 id="honors-heading">Honors</h2>
+      <ul class="honors-list">
+        {profile.honors.map(honor => <li><span>{honor.title}</span><span class="honor-year">{honor.year}</span></li>)}
       </ul>
     </section>
     <footer class="site-footer"><p>© {new Date().getFullYear()} {profile.name}</p></footer>

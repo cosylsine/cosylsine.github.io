@@ -12,7 +12,7 @@ Prepared on 2026-10-11 from the original publications and their authors' reposit
 | --- | --- | ---: | --- |
 | `public/images/research/aoeb.webp` | 1200 × 828 | 83,756 | AOEB, Figure 1: agent capabilities, corresponding retrieval tasks, and benchmark positioning |
 | `public/images/research/lmeb.webp` | 1200 × 660 | 89,772 | LMEB, Figure 1: overview of four memory categories, 22 datasets, and 193 retrieval tasks |
-| `public/images/research/kalm-beir.webp` | 1200 × 998 | 96,444 | KaLM-Reranker-V1, Figure 1(a), BEIR performance and relative online computation cost |
+| `public/images/research/kalm-architecture.webp` | 1200 × 232 | 35,752 | KaLM-Reranker-V1, Figure 2: encoder-decoder model architecture with compressed document representations and cross-attention |
 
 ## AOEB
 
@@ -25,10 +25,9 @@ Prepared on 2026-10-11 from the original publications and their authors' reposit
 ## KaLM-Reranker-V1
 
 - Paper: [KaLM-Reranker-V1](https://arxiv.org/abs/2606.22807), version 1.
-- Architecture source: [Figure 2 original JPEG](https://arxiv.org/html/2606.22807v1/figure/framework.jpg).
-- Displayed comparison source: [Figure 1(a) original PNG](https://arxiv.org/html/2606.22807v1/figure/beir_scatter.png).
+- Displayed architecture source: [Figure 2 original JPEG](https://arxiv.org/html/2606.22807v1/figure/framework.jpg).
 - Attribution: Xinping Zhao, Jiaxin Xu, and coauthors, 2026.
-- Processing: resize and encode only, with no crop or rearrangement. The displayed BEIR chart is preserved completely with `object-fit: contain`. The architecture figure was also inspected, but its very wide ratio (about 5.17:1) is less suitable for this layout; its converted copy remains in the ignored source-assets directory.
+- Processing: resize and encode only, with no crop or rearrangement. At the owner's request on 2026-10-13, Figure 2 replaces the BEIR experiment chart. The complete architecture figure and its wide aspect ratio (about 5.17:1) are preserved with `object-fit: contain`.
 - Rights evidence: the [arXiv HTML](https://arxiv.org/html/2606.22807v1) labels this version with the arXiv perpetual, non-exclusive license. This grants rights to arXiv and is not a general open reuse license. The model's Apache-2.0 designation is not assumed to license paper figures. The asset is included for the coauthor's own requested research portfolio.
 
 ## LMEB
@@ -42,4 +41,4 @@ Prepared on 2026-10-11 from the original publications and their authors' reposit
 
 ## Maintenance
 
-The local downloaded originals and PDF page renders are in ignored `artifacts/source-assets/`. They are not part of the deployed site. Publication records link to the original papers; each thumbnail has descriptive alternative text and opens the full-size figure. On small screens, the Figure link preserves the same access. Source attribution and original figure numbers are retained here. The three displayed WebP files total 269,972 bytes (approximately 264 KiB) and load lazily. The architecture alternative is not deployed.
+The local downloaded originals and PDF page renders are in ignored `artifacts/source-assets/`. They are not part of the deployed site. Publication records link to the original papers; each thumbnail has descriptive alternative text and opens the full-size figure. On small screens, the Figure link preserves the same access. Source attribution and original figure numbers are retained here. The three displayed WebP files total 209,280 bytes (approximately 204 KiB) and load lazily. The BEIR experiment chart is no longer included in the deployed assets.
