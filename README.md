@@ -2,7 +2,9 @@
 
 A small English/Chinese personal academic homepage: an owner-selected profile image, two biography paragraphs, contact links, three publications, and compact Education and Honors sections. It follows the readable personal-page structure of [Jon Barron](https://jonbarron.info/) and [Andrej Karpathy](https://karpathy.ai/), with fuller scholarly records informed by [Xin Zhang's homepage](https://izhx.github.io/). The page uses a white background, dark text, blue links, and equally weighted, text-only paper entries.
 
-Astro generates static HTML and CSS with a small language-switching script and no backend or client framework. English is the default; the EN / 中文 buttons translate the section headings, biography, education, honors, secondary email label, and skip link. Paper titles, author lists, venues, descriptions, and resource links remain English. The choice is saved in local storage and restored before rendering; switching still works when storage is blocked. With JavaScript disabled, the complete English page remains readable and the switch is hidden. One font and the profile image are served locally. The live site is https://cosylsine.github.io/.
+Astro generates static HTML and CSS with small scripts for language switching and current-section tracking, and no backend or client framework. English is the default; the EN / 中文 buttons translate the navigation, section headings, biography, education, honors, secondary email label, and skip link. Paper titles, author lists, venues, descriptions, and resource links remain English. The choice is saved in local storage and restored before rendering; switching still works when storage is blocked. With JavaScript disabled, the complete English page remains readable and the switch is hidden. One font and the profile image are served locally. The live site is https://cosylsine.github.io/.
+
+The page directory links to About / 个人简介, Publications / 论文发表, Education / 教育经历, and Honors / 荣誉奖励. At 1200px and wider it is a fixed 144px left sidebar beside the centered, maximum-800px article; below 1200px it becomes a sticky horizontal row that can scroll when needed. Native anchors remain usable without JavaScript. With JavaScript, scrolling, clicks, and hash changes update `aria-current="location"`. Links have 44px minimum targets; anchor scrolling is smooth unless reduced motion is requested, and navigation is hidden when printing.
 
 ## Local development
 
@@ -29,6 +31,7 @@ npm run preview
 - `src/components/Publication.astro`: the shared text-only publication entry.
 - `src/components/LocalizedText.astro`: paired English/Chinese text, selected through the document language. Maintain both translations when changing localized copy in the page or layout.
 - `src/components/LanguageSwitcher.astro`: accessible language buttons and preference saving; `src/layouts/BaseLayout.astro` restores the saved preference before rendering.
+- `src/components/SectionNavigation.astro`: bilingual section links and current-section tracking. To add a section, give it a stable `id` in `src/pages/index.astro` and add the matching `id`, `en`, and `zh` entry to the `sections` array; tracking derives its targets from those entries.
 - `src/styles/global.css`: typography, colors, the 800px page width, and responsive styles.
 - `public/images/profile.webp`: the owner-selected avatar, optimized at 480px wide while preserving its original aspect ratio.
 - `docs/image-sources.md`: profile-image provenance and historical research-figure sources. Research figures were removed from the homepage on 2026-10-13 at the owner's request; local copies remain in ignored `artifacts/source-assets/retired-research-figures/`.
@@ -47,6 +50,6 @@ The public artifact is only `dist/`; development documents, QA screenshots, and 
 
 ## Browser verification
 
-With a preview server running, run `npm run qa`. It uses installed Google Chrome, checks desktop (1440px) and mobile (390px) in both languages, captures screenshots to ignored `artifacts/`, and checks the rendered content, links, responsive layout, and accessibility. It also verifies keyboard switching, preference persistence, unchanged English paper records, blocked storage, invalid preferences, and the no-JavaScript fallback. Set `QA_URL` to use another preview URL and `CHROME_PATH` to use another Chrome executable.
+With a preview server running, run `npm run qa`. It uses installed Google Chrome, checks desktop (1440px) and mobile (390px) in both languages, captures screenshots to ignored `artifacts/`, and checks the rendered content, links, responsive layout, and accessibility. It also verifies bilingual navigation targets, anchor visibility, active-section tracking on clicks and scrolling, keyboard order and language switching, preference persistence, unchanged English paper records, blocked storage, invalid preferences, and the no-JavaScript content and anchor fallback. Set `QA_URL` to use another preview URL and `CHROME_PATH` to use another Chrome executable.
 
 See `docs/visual-review.md` for the design critique and verification evidence. Reference screenshots are kept locally in `artifacts/references/`.

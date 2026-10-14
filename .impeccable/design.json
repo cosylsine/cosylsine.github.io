@@ -14,7 +14,7 @@
       "publication-title": { "displayName": "Paper title", "purpose": "Equal-weight scholarly titles in a compact list" }
     },
     "shadows": [],
-    "breakpoints": [{ "name": "mobile", "value": "600px" }]
+    "breakpoints": [{ "name": "mobile", "value": "600px" }, { "name": "section-sidebar", "value": "1200px" }]
   },
   "components": [
     {

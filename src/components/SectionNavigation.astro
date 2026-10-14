@@ -1,0 +1,107 @@
+---
+import LocalizedText from './LocalizedText.astro';
+
+const sections = [
+  { id: 'about', en: 'About', zh: '个人简介' },
+  { id: 'publications', en: 'Publications', zh: '论文发表' },
+  { id: 'education', en: 'Education', zh: '教育经历' },
+  { id: 'honors', en: 'Honors', zh: '荣誉奖励' },
+];
+---
+<nav class="section-nav" aria-labelledby="section-nav-heading">
+  <p id="section-nav-heading" class="section-nav-heading"><LocalizedText en="On this page" zh="页面导航"/></p>
+  <ul>
+    {sections.map(section => (
+      <li><a href={`#${section.id}`}><LocalizedText en={section.en} zh={section.zh}/></a></li>
+    ))}
+  </ul>
+</nav>
+
+<script>
+  const navigation = document.querySelector<HTMLElement>('.section-nav');
+  const entries = Array.from(navigation?.querySelectorAll<HTMLAnchorElement>('a') ?? [])
+    .flatMap(link => {
+      const section = document.getElementById(link.hash.slice(1));
+      return section ? [{ link, section }] : [];
+    });
+
+  let requestedId: string | undefined;
+  let settleTimer: ReturnType<typeof setTimeout>;
+  let scheduled = false;
+
+  function setCurrent(id: string) {
+    entries.forEach(({ link, section }) => {
+      if (section.id === id) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }
+
+  function releaseAfterScroll() {
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(() => { requestedId = undefined; }, 180);
+  }
+
+  function selectDestination(id: string) {
+    if (!entries.some(({ section }) => section.id === id)) return;
+    // Keep a clicked destination selected even when two short sections share
+    // the same maximum scroll position near the bottom of the page.
+    requestedId = id;
+    setCurrent(id);
+    releaseAfterScroll();
+  }
+
+  function updateCurrent() {
+    scheduled = false;
+    if (requestedId || !entries.length) return;
+    const scrollPadding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+    const readingLine = Math.max(scrollPadding + 24, window.innerHeight * 0.25);
+    let current = entries[0];
+    if (window.scrollY > 0) {
+      for (const entry of entries) {
+        if (entry.section.getBoundingClientRect().top <= readingLine) current = entry;
+      }
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+        current = entries[entries.length - 1];
+      }
+    }
+    setCurrent(current.section.id);
+  }
+
+  function scheduleUpdate() {
+    if (!scheduled) {
+      scheduled = true;
+      requestAnimationFrame(updateCurrent);
+    }
+  }
+
+  function resumeTracking() {
+    requestedId = undefined;
+    clearTimeout(settleTimer);
+  }
+
+  entries.forEach(({ link, section }) => {
+    link.addEventListener('click', event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      selectDestination(section.id);
+    });
+  });
+  window.addEventListener('scroll', () => {
+    if (requestedId) releaseAfterScroll();
+    scheduleUpdate();
+  }, { passive: true });
+  window.addEventListener('resize', scheduleUpdate);
+  window.addEventListener('wheel', resumeTracking, { passive: true });
+  window.addEventListener('touchmove', resumeTracking, { passive: true });
+  window.addEventListener('keydown', event => {
+    if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) resumeTracking();
+  });
+  window.addEventListener('hashchange', () => {
+    requestedId = undefined;
+    selectDestination(window.location.hash.slice(1));
+    scheduleUpdate();
+  });
+  const main = document.getElementById('main');
+  if (main) new ResizeObserver(scheduleUpdate).observe(main);
+  updateCurrent();
+  selectDestination(window.location.hash.slice(1));
+</script>

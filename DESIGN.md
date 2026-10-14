@@ -59,7 +59,7 @@ The references are [Jon Barron's homepage](https://jonbarron.info/), [Andrej Kar
 6. Honors: the owner-confirmed 2026 National Scholarship.
 7. A small copyright line.
 
-There is no navigation bar, hero slogan, call-to-action button, news feed, separate research band, project list, or contact panel. Those sections previously repeated facts already present in the biography and papers. The compact Education section follows Publications, and its undergraduate details replace the former biography sentence. Paper and code/model resources remain alongside the corresponding publication.
+An owner-requested page directory links to About, Publications, Education, and Honors, supporting section jumps and future additions without changing the content order. There is no hero slogan, call-to-action button, news feed, separate research band, project list, or contact panel. Those sections previously repeated facts already present in the biography and papers. The compact Education section follows Publications, and its undergraduate details replace the former biography sentence. Paper and code/model resources remain alongside the corresponding publication.
 
 ## Color and type
 
@@ -69,7 +69,7 @@ Source Sans 3 is the sole web font, served locally as one Latin variable WOFF2 w
 
 ## Layout
 
-The page is centered at a maximum width of 800px, with 24px side margins on narrow screens. Desktop content begins 70px from the top; mobile content begins at 34px. The profile ends 42px before Publications on desktop and 30px on mobile.
+The article remains centered at a maximum width of 800px, with 24px side margins on narrow screens. At 1200px and wider, a fixed 144px directory sits to the left of the article, beginning 76px from the top; article content begins 70px from the top. Below 1200px, navigation becomes a sticky horizontal row at the top with horizontal overflow available, and the article starts 34px after it. Anchor scroll padding is 24px with the sidebar and 85px with the sticky row. The profile ends 42px before Publications on desktop and 30px on mobile.
 
 The profile image sits to the right of the biography on desktop at 160px wide, separated by 36px, and beside the name on mobile at 96px wide. Preserve its original aspect ratio and use the locally served 480 × 584 WebP (30,298 bytes). It is a personal avatar selected by the owner, not a verified portrait; alternative text must remain neutral.
 
@@ -80,13 +80,14 @@ At 600px and below, publication entries are separated by 25px. Contact and resou
 ## Components and behavior
 
 - **Profile:** a single name heading, the supplied avatar, two short paragraphs, and a wrapping contact list.
+- **Section navigation:** four native anchor links: About / 个人简介 (`#about`), Publications / 论文发表 (`#publications`), Education / 教育经历 (`#education`), and Honors / 荣誉奖励 (`#honors`). Each has a 44px minimum target and visible keyboard focus. Scrolling, clicks, and hash changes update `aria-current="location"`; blue text, weight 600, and an underline indicate the current location, with a blue left border in the sidebar. Navigation shares the language selection. Anchor scrolling is smooth unless reduced motion is requested, and anchors work without JavaScript. Add future sections with a stable page `id` and a matching bilingual entry in the `sections` array in `src/components/SectionNavigation.astro`; tracking derives from the entries.
 - **Language:** quiet EN / 中文 text buttons beside the name, wrapping below it on narrow screens. Each button has a 44px minimum target and visible keyboard focus. Underline, weight, and `aria-pressed` identify the current language. English is the initial default; the preference is saved locally and restored before rendering. Headings, biography, education, honors, secondary email label, and the skip link switch languages. Paper titles, authors, venues, descriptions, and resource labels remain English. The name remains bilingual. Language switching works even when browser storage is blocked.
 - **Education:** one shared school heading and two compact degree rows: master's in Computer Technology, Sep 2025 – Present; undergraduate studies in Computer Science and Technology, Sep 2021 – Jul 2025. Keep the same quiet typography and unboxed layout as the rest of the page.
 - **Honors:** follows Education and lists National Scholarship with the year 2026. Match Education's plain typography, section spacing, and responsive row layout.
 - **Publication:** a text-only entry with linked title, full authors in their original order, venue/year, a one-sentence description, and all three existing resource links. AOEB uses Paper, Code, and Conference; KaLM-Reranker-V1 uses Paper, Models, and Nano model; LMEB uses Paper, Code, and Project. Keep resource choices in the data file. Readers can find figures in the linked papers.
 - **Links:** blue text with an underline on hover and a 2px visible focus outline offset by 4px. Contact and resource links have 44px minimum target height.
-- **Accessibility:** semantic document structure, a keyboard skip link, and responsive reflow. Document language tracks the selection; English publication content and translated spans carry explicit language tags. All English content remains available without JavaScript, with the language buttons hidden. There are no menus, copy controls, disclosures, animation, or loading states.
-- **Print:** full-width page content in the selected language with publication rows kept together where possible; language controls are hidden.
+- **Accessibility:** semantic document structure, a keyboard skip link, and responsive reflow. Document language tracks the selection; English publication content and translated spans carry explicit language tags. All English content and section anchors remain available without JavaScript, with the language buttons hidden. There are no dropdown menus, copy controls, disclosures, ornamental animation, or loading states.
+- **Print:** full-width page content in the selected language with publication rows kept together where possible; language controls and section navigation are hidden.
 
 ## Content safeguards
 
