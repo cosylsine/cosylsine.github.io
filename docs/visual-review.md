@@ -1,5 +1,19 @@
 # Academic homepage review
 
+## Refined pixel typography — 2026-10-15
+
+The owner rejected the initial pixel font and asked for Jiaxin Xu to use a better-looking pixel treatment as well. The revision uses Pixelify Sans at 40px/500 for the desktop English name and 36px/500 on mobile, with quieter 26px/400 English section headings. A renamed ZhengGeDianHei 16 subset supplies the Chinese name and 24px section headings with .04em tracking. Both fonts are local, totaling 9,860 bytes. The former blue heading dots and avatar brackets are removed. Reading text, academic content, and navigation retain the original typography.
+
+The font specimen and rendered desktop/mobile pages were inspected. The English name has a clear display role, while the finer Chinese grid leaves more room inside complex characters. Browser font inspection confirms the intended custom font renders the name and headings in both languages. Astro check has zero errors, warnings, or hints; build and the existing bilingual browser QA pass, with zero axe violations in all four language/viewport combinations. A further narrow-screen check found long titles and the email address overflowing at 320px with 200% root text; wrapping rules now address that case. The confirmation passes in both languages at 320px and 390px with 200% text, without name/avatar overlap. Print uses the reading fonts. Evidence is in ignored `artifacts/`, including `pixel-check.json` and `pixel-refined-320-*.png`.
+
+## Pixel accents — superseded first pass, 2026-10-15
+
+The owner requested a few pixel decorations and pixel typography for selected headings. Publications, Education, and Honors now use a locally bundled pixel font in both languages, with three small blue squares beside each title. Two blue corner marks frame the avatar. The name, reading text, scholarly records, navigation, and language controls keep their existing typography. The homepage imports its own accent stylesheet; the shared styles are unchanged.
+
+The font is a renamed Fusion Pixel 12px Proportional subset containing printable ASCII and all twelve Chinese heading characters, totaling 3,192 bytes. Its source, license, and reproduction instructions are retained. Chrome's rendered-font inspection confirms that the English and Chinese heading glyphs use Homepage Pixel, at 24px and regular weight. Print restores the ordinary heading font and hides the decoration.
+
+Astro check reports zero errors, warnings, or hints, and the static build passes. Desktop and mobile captures in both languages were inspected in one batch: the pixel headings remain legible and the small marks preserve the quiet academic layout. The existing browser QA passes navigation, language persistence, keyboard use, blocked storage, invalid preferences, and no-JavaScript behavior. There is no horizontal overflow at checked widths from 320 to 1440px or with 200% root text; all four desktop/mobile language combinations have zero axe WCAG A/AA violations. Captures, the QA report, and the additional rendered-font/print checks are in ignored `artifacts/`.
+
 ## English/Chinese language switch — 2026-10-14
 
 The owner requested bilingual section headings and general profile information while retaining English paper details. Compact EN / 中文 buttons now sit beside the name on desktop and below it on mobile. They translate the section headings, biography, education, honors, secondary email label, and skip link. Paper titles, authors, venues, descriptions, and all resource links stay English. The chosen language persists locally and is restored before rendering. When storage is unavailable, switching still works; without JavaScript, the complete English page remains readable and the controls are hidden.

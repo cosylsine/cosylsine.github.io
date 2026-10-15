@@ -9,16 +9,21 @@ colors:
   link-hover: "#0c3d6b"
 typography:
   name:
-    fontFamily: "Source Sans 3 Variable, Helvetica Neue, sans-serif"
-    fontSize: "36px"
-    fontWeight: 600
-    lineHeight: 1.2
-    letterSpacing: "-.025em"
+    fontFamily: "Pixelify Sans, Source Sans 3 Variable, sans-serif"
+    fontSize: "40px"
+    fontWeight: 500
+    lineHeight: 1.15
+    letterSpacing: "0"
   section:
-    fontFamily: "Source Sans 3 Variable, Helvetica Neue, sans-serif"
+    fontFamily: "Pixelify Sans, Source Sans 3 Variable, sans-serif"
+    fontSize: "26px"
+    fontWeight: 400
+    lineHeight: 1.4
+  section-chinese:
+    fontFamily: "Homepage Pixel CJK, PingFang SC, sans-serif"
     fontSize: "24px"
-    fontWeight: 600
-    lineHeight: 1.3
+    fontWeight: 400
+    letterSpacing: ".04em"
   publication-title:
     fontFamily: "Source Sans 3 Variable, Helvetica Neue, sans-serif"
     fontSize: "17px"
@@ -65,7 +70,9 @@ An owner-requested page directory links to About, Publications, Education, and H
 
 A white page (#ffffff), dark gray text (#292929), secondary text (#626262), and blue links (#185d9c, #0c3d6b on hover). Color comes from the supplied profile image. No colored section backgrounds, shadows, cards, or gradients.
 
-Source Sans 3 is the sole web font, served locally as one Latin variable WOFF2 with `font-display: swap`; Chinese text uses PingFang SC, Microsoft YaHei, or the platform sans-serif fallback. Body text is 17px with 1.6 line height. The desktop name is 36px, section headings 24px, paper titles 17px, author and venue metadata 15px, and the footer 13px. Titles use weight 600. Jiaxin Xu is emphasized within each full author list. On mobile the name is 32px, the Chinese name 18px, and section headings 22px.
+Source Sans 3 remains the reading font, served locally as one Latin variable WOFF2 with `font-display: swap`; ordinary Chinese text uses PingFang SC, Microsoft YaHei, or the platform sans-serif fallback. Body text is 17px with 1.6 line height, paper titles 17px/600, author and venue metadata 15px, and the footer 13px. Jiaxin Xu is emphasized within each full author list.
+
+The owner requested pixel typography on 2026-10-15, then rejected the initial Fusion Pixel treatment and asked to include Jiaxin Xu in the improved style. Use Pixelify Sans for the English name (40px/500 desktop, 36px/500 mobile, line height 1.15) and English section headings (26px/400, line height 1.4). Use Homepage Pixel CJK, a renamed subset of ZhengGeDianHei 16, for the Chinese name (20px desktop, 18px mobile) and Chinese section headings (24px/400); use .04em Chinese letter spacing. Both fonts are locally bundled WOFF2 subsets, totaling 9,860 bytes, with `font-display: swap` and no synthetic weights. The finer Chinese grid gives complex characters more space, while the Latin family provides a clear name/section hierarchy. Remove the former heading dots and avatar corner marks so typography carries the pixel treatment. The bilingual name can wrap between languages; at enlarged text sizes, name and heading text can wrap inside the available column. Keep publication titles, navigation, controls, and body in the existing reading typography. Homepage-specific styles live in `src/styles/pixel.css`. Font provenance and reproduction instructions are in `src/assets/fonts/README.md`.
 
 ## Layout
 
@@ -87,7 +94,7 @@ At 600px and below, publication entries are separated by 25px. Contact and resou
 - **Publication:** a text-only entry with linked title, full authors in their original order, venue/year, a one-sentence description, and all three existing resource links. AOEB uses Paper, Code, and Conference; KaLM-Reranker-V1 uses Paper, Models, and Nano model; LMEB uses Paper, Code, and Project. Keep resource choices in the data file. Readers can find figures in the linked papers.
 - **Links:** blue text with an underline on hover and a 2px visible focus outline offset by 4px. Contact and resource links have 44px minimum target height.
 - **Accessibility:** semantic document structure, a keyboard skip link, and responsive reflow. Document language tracks the selection; English publication content and translated spans carry explicit language tags. All English content and section anchors remain available without JavaScript, with the language buttons hidden. There are no dropdown menus, copy controls, disclosures, ornamental animation, or loading states.
-- **Print:** full-width page content in the selected language with publication rows kept together where possible; language controls and section navigation are hidden.
+- **Print:** full-width page content in the selected language with publication rows kept together where possible; language controls and section navigation are hidden. Restore the name and section headings to the ordinary reading font for print.
 
 ## Content safeguards
 

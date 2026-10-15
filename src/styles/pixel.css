@@ -1,0 +1,77 @@
+/* Display typography belongs to the homepage; reading text stays in Source Sans. */
+@font-face {
+  font-family: 'Pixelify Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../assets/fonts/pixelify-sans-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Homepage Pixel CJK';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/homepage-pixel-cjk.woff2') format('woff2');
+}
+
+.profile-heading { min-width: 0; }
+
+.profile-name {
+  max-width: 100%;
+  gap: 6px 18px;
+  font-size: 2.5rem;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.profile-name-latin,
+.pixel-heading {
+  font-family: 'Pixelify Sans', var(--sans);
+  font-synthesis: none;
+  -webkit-font-smoothing: auto;
+}
+
+.profile-name .profile-name-latin {
+  min-width: 0;
+  max-width: 100%;
+  color: var(--ink);
+  font-size: inherit;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.profile-name .profile-name-chinese,
+.pixel-heading [lang='zh-CN'] {
+  font-family: 'Homepage Pixel CJK', var(--sans);
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: .04em;
+  -webkit-font-smoothing: auto;
+}
+
+.pixel-heading {
+  font-size: 1.625rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.pixel-heading [lang='zh-CN'] { font-size: 1.5rem; }
+
+@media (max-width: 600px) {
+  .profile-name { font-size: 2.25rem; }
+  .contact-links li { min-width: 0; max-width: 100%; }
+  .contact-links a { max-width: 100%; overflow-wrap: anywhere; }
+}
+
+@media print {
+  .profile-name-latin,
+  .profile-name .profile-name-chinese,
+  .pixel-heading,
+  .pixel-heading [lang='zh-CN'] { font-family: var(--sans); }
+  .profile-name .profile-name-latin,
+  .pixel-heading,
+  .pixel-heading [lang='zh-CN'] { font-weight: 600; }
+}

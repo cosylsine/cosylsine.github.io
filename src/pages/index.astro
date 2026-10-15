@@ -6,13 +6,14 @@ import LocalizedText from '../components/LocalizedText.astro';
 import SectionNavigation from '../components/SectionNavigation.astro';
 import { profile } from '../data/profile';
 import { publications } from '../data/publications';
+import '../styles/pixel.css';
 ---
 <BaseLayout>
   <SectionNavigation/>
   <main id="main" class="page">
     <header id="about" class="profile" aria-labelledby="name-heading" tabindex="-1">
       <div class="profile-heading">
-        <h1 id="name-heading" lang="en">{profile.name}<span lang="zh-CN">{profile.chineseName}</span></h1>
+        <h1 id="name-heading" class="profile-name" lang="en"><span class="profile-name-latin">{profile.name}</span><span class="profile-name-chinese" lang="zh-CN">{profile.chineseName}</span></h1>
         <LanguageSwitcher/>
       </div>
       <img class="profile-image" lang="en" src="/images/profile.webp" alt="Jiaxin Xu’s chosen profile image" width="480" height="584" decoding="async" fetchpriority="high"/>
@@ -28,11 +29,11 @@ import { publications } from '../data/publications';
     </header>
 
     <section id="publications" aria-labelledby="publications-heading" tabindex="-1">
-      <h2 id="publications-heading"><LocalizedText en="Publications" zh="论文发表"/></h2>
+      <h2 id="publications-heading" class="pixel-heading"><LocalizedText en="Publications" zh="论文发表"/></h2>
       <div class="publication-list" lang="en">{publications.map(paper => <Publication paper={paper}/>)}</div>
     </section>
     <section id="education" class="education" aria-labelledby="education-heading" tabindex="-1">
-      <h2 id="education-heading"><LocalizedText en="Education" zh="教育经历"/></h2>
+      <h2 id="education-heading" class="pixel-heading"><LocalizedText en="Education" zh="教育经历"/></h2>
       <p class="education-school"><LocalizedText en={profile.institution} zh="哈尔滨工业大学（深圳）"/></p>
       <ul class="education-list">
         <li><span><LocalizedText en={`Master’s studies in ${profile.degree}`} zh="计算机技术 · 硕士研究生"/></span><span class="education-date"><LocalizedText en={profile.educationDates} zh="2025年9月 – 至今"/></span></li>
@@ -40,7 +41,7 @@ import { publications } from '../data/publications';
       </ul>
     </section>
     <section id="honors" class="honors" aria-labelledby="honors-heading" tabindex="-1">
-      <h2 id="honors-heading"><LocalizedText en="Honors" zh="荣誉奖励"/></h2>
+      <h2 id="honors-heading" class="pixel-heading"><LocalizedText en="Honors" zh="荣誉奖励"/></h2>
       <ul class="honors-list">
         {profile.honors.map(honor => <li><span><LocalizedText en={honor.title} zh={honor.titleZh}/></span><span class="honor-year">{honor.year}</span></li>)}
       </ul>
