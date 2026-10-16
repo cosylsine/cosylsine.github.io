@@ -93,7 +93,7 @@ try {
     });
 
     assert.equal(await page.locator('.publication img').count(), 0);
-    assert.equal(await page.locator('.publication .resource-links a:visible').count(), 9);
+    assert.equal(await page.locator('.publication .resource-links a:visible').count(), 10);
     const originalPapers = await page.locator('.publication-list').innerHTML();
     const originalLinks = await page.locator('a').evaluateAll(links => links.map(link => link.href));
     for (const language of ['en', 'zh-CN']) {
@@ -190,7 +190,7 @@ try {
   await staticPage.goto(baseURL);
   assert.equal(await staticPage.locator('.publication').count(), 3);
   assert.equal(await staticPage.locator('a[href^="mailto:"]').count(), 2);
-  assert.equal(await staticPage.locator('.publication .resource-links a:visible').count(), 9);
+  assert.equal(await staticPage.locator('.publication .resource-links a:visible').count(), 10);
   assert.equal(await staticPage.locator('html').getAttribute('lang'), 'en');
   assert.equal(await staticPage.locator('#publications-heading').innerText(), 'Publications');
   assert.equal(await staticPage.locator('.language-switch').isVisible(), false, 'Hide the switch when JavaScript is disabled');

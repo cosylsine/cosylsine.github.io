@@ -29,6 +29,7 @@ export const publications: Publication[] = [
     description: 'An efficient reranker that separates offline passage encoding from online query processing while retaining expressive cross-attention.',
     links: [
       { label: 'Paper', url: 'https://arxiv.org/abs/2606.22807' },
+      { label: 'Code', url: 'https://github.com/HITsz-TMG/Lychee-Reranker' },
       { label: 'Models', url: 'https://huggingface.co/collections/KaLM-Embedding/lychee-kalm-reranker-and-jev' },
       { label: 'Nano model', url: 'https://huggingface.co/KaLM-Embedding/KaLM-Reranker-V1-Nano' },
     ],
